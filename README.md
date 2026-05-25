@@ -9,6 +9,79 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
 - https://tutorialsdojo.com/aws-cheat-sheets/
 
 
+## Table of Contents
+
+- [🧔 Accounts - Identity and Access Management (IAM) Basics](#-accounts---identity-and-access-management-iam-basics)
+  - [Account and IAM Basics](#account-and-iam-basics)
+  - [IAM Access Keys](#iam-access-keys)
+
+- [☁️ Cloud Computing Fundamentals](#️-cloud-computing-fundamentals)
+  - [Essential Characteristics of Cloud Computing](#essential-characteristics-of-cloud-computing)
+  - [Public vs Private vs Hybrid vs Multi Cloud](#public-vs-private-vs-hybrid-vs-multi-cloud)
+  - [Cloud Service Models](#cloud-service-models)
+  - [🗣YAML - YAML Ain't Markup Language](#️yaml---yaml-aint-markup-language)
+
+- [🐣 AWS Fundamentals](#-aws-fundamentals)
+  - [Public vs Private Services](#public-vs-private-services)
+  - [AWS Global Infrastructure](#aws-global-infrastructure)
+  - [Virtual Private Cloud (VPC) Basics](#virtual-private-cloud-vpc-basics)
+  - [Elastic Compute Cloud (EC2) Basics](#elastic-compute-cloud-ec2-basics)
+  - [Simple Storage Service (S3) Basics](#simple-storage-service-s3-basics)
+  - [CloudFormation Basics](#cloudformation-basics)
+  - [CloudWatch Basics](#cloudwatch-basics)
+  - [Shared Responsibility Model](#shared-responsibility-model)
+  - [High-Availability (HA) vs Fault-Tolerance (FT) vs Disaster Recovery (DR)](#high-availability-ha-vs-fault-tolerance-ft-vs-disaster-recovery-dr)
+  - [Domain Name System (DNS) Basics](#domain-name-system-dns-basics)
+  - [Route53 Fundamentals](#route53-fundamentals)
+  - [DNS Record Types](#dns-record-types)
+
+- [🦠 IAM, Account and AWS Organizations](#-iam-account-and-aws-organizations)
+  - [IAM Identity Policies](#iam-identity-policies)
+  - [IAM Users and ARNs](#iam-users-and-arns)
+  - [IAM Groups](#iam-groups)
+  - [IAM Roles](#iam-roles)
+  - [Service-linked Roles & PassRole](#service-linked-roles--passrole)
+  - [AWS Organizations](#aws-organizations)
+  - [Service Control Policies (SCP)](#service-control-policies-scp)
+  - [CloudWatch Logs](#cloudwatch-logs)
+  - [CloudTrail Essentials](#cloudtrail-essentials)
+  - [AWS Control Tower](#aws-control-tower)
+
+- [💾 Simple Storage Service S3](#-simple-storage-service-s3)
+  - [S3 Security](#s3-security)
+  - [S3 Static Hosting](#s3-static-hosting)
+  - [Object Versioning & MFA Delete](#object-versioning--mfa-delete)
+  - [S3 Performance Optimization](#s3-performance-optimization)
+  - [Key Management Service (KMS)](#key-management-service-kms)
+  - [S3 Encryption](#s3-encryption)
+  - [S3 Object Storage Classes](#s3-object-storage-classes)
+  - [S3 Lifecycle Configuration](#s3-lifecycle-configuration)
+  - [S3 Replication](#s3-replication)
+  - [S3 Presigned URLs](#s3-presigned-urls)
+  - [S3 Select and Glacier Select](#s3-select-and-glacier-select)
+  - [S3 Events](#s3-events)
+  - [S3 Access Logs](#s3-access-logs)
+  - [S3 Object Lock](#s3-object-lock)
+
+- [⛅ Virtual Private Cloud (VPC)](#-virtual-private-cloud-vpc)
+  - [VPC Sizing and Structure](#vpc-sizing-and-structure)
+  - [Custom VPCs](#custom-vpcs)
+  - [VPC Subnets](#vpc-subnets)
+  - [VPC Routing and Internet Gateway](#vpc-routing-and-internet-gateway)
+  - [Stateful vs Stateless Firewalls](#stateful-vs-stateless-firewalls)
+  - [Network Access Control Lists (NACL)](#network-access-control-lists-nacl)
+  - [VPC Security Groups (SG)](#vpc-security-groups-sg)
+  - [Network Address Translation (NAT) and NAT Gateways](#network-address-translation-nat-and-nat-gateways)
+
+- [🖥 Elastic Compute Cloud (EC2) Basics](#-elastic-compute-cloud-ec2-basics)
+  - [Virtualization 101](#virtualization-101)
+  - [EC2 Architecture and Resilience](#ec2-architecture-and-resilience)
+  - [EC2 Instance Types](#ec2-instance-types)
+  - [Storage Refresher](#storage-refresher)
+  - [Elastic Block Storage (EBS)](#elastic-block-storage-ebs)
+  - [EBS Volume Types - General Purpose SSD](#ebs-volume-types---general-purpose-ssd)
+
+
 # 🧔 Accounts - Identity and Access Management (IAM) Basics
 
 ## Account and IAM **Basics**

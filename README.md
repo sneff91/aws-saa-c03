@@ -11,7 +11,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
 
 ## Table of Contents
 
-- [🧔 Accounts - Identity and Access Management (IAM) Basics](#-accounts---identity-and-access-management-iam-basics)
+- [🧔 Accounts - Identity and Access Management (IAM) Basics](#accounts---identity-and-access-management-iam-basics)
   - [Account and IAM Basics](#account-and-iam-basics)
   - [IAM Access Keys](#iam-access-keys)
 
@@ -21,7 +21,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Cloud Service Models](#cloud-service-models)
   - [🗣YAML - YAML Ain't Markup Language](#️yaml---yaml-aint-markup-language)
 
-- [🐣 AWS Fundamentals](#-aws-fundamentals)
+- [🐣 AWS Fundamentals](#aws-fundamentals)
   - [Public vs Private Services](#public-vs-private-services)
   - [AWS Global Infrastructure](#aws-global-infrastructure)
   - [Virtual Private Cloud (VPC) Basics](#virtual-private-cloud-vpc-basics)
@@ -35,7 +35,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Route53 Fundamentals](#route53-fundamentals)
   - [DNS Record Types](#dns-record-types)
 
-- [🦠 IAM, Account and AWS Organizations](#-iam-account-and-aws-organizations)
+- [🦠 IAM, Account and AWS Organizations](#iam-account-and-aws-organizations)
   - [IAM Identity Policies](#iam-identity-policies)
   - [IAM Users and ARNs](#iam-users-and-arns)
   - [IAM Groups](#iam-groups)
@@ -47,7 +47,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [CloudTrail Essentials](#cloudtrail-essentials)
   - [AWS Control Tower](#aws-control-tower)
 
-- [💾 Simple Storage Service S3](#-simple-storage-service-s3)
+- [💾 Simple Storage Service S3](#simple-storage-service-s3)
   - [S3 Security](#s3-security)
   - [S3 Static Hosting](#s3-static-hosting)
   - [Object Versioning & MFA Delete](#object-versioning--mfa-delete)
@@ -63,7 +63,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [S3 Access Logs](#s3-access-logs)
   - [S3 Object Lock](#s3-object-lock)
 
-- [⛅ Virtual Private Cloud (VPC)](#-virtual-private-cloud-vpc)
+- [⛅ Virtual Private Cloud (VPC)](#virtual-private-cloud-vpc)
   - [VPC Sizing and Structure](#vpc-sizing-and-structure)
   - [Custom VPCs](#custom-vpcs)
   - [VPC Subnets](#vpc-subnets)
@@ -73,7 +73,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [VPC Security Groups (SG)](#vpc-security-groups-sg)
   - [Network Address Translation (NAT) and NAT Gateways](#network-address-translation-nat-and-nat-gateways)
 
-- [🖥 Elastic Compute Cloud (EC2) Basics](#-elastic-compute-cloud-ec2-basics)
+- [🖥 Elastic Compute Cloud (EC2) Basics](#elastic-compute-cloud-ec2-basics)
   - [Virtualization 101](#virtualization-101)
   - [EC2 Architecture and Resilience](#ec2-architecture-and-resilience)
   - [EC2 Instance Types](#ec2-instance-types)
@@ -95,7 +95,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Horizontal and Vertical Scaling](#horizontal-and-vertical-scaling)
   - [Instance Metadata](#instance-metadata)
 
-- [🐳 Containers & ECS](#-containers--ecs)
+- [🐳 Containers & ECS](#containers--ecs)
   - [Introduction to Containers](#introduction-to-containers)
   - [Elastic Container Service (ECS) Concepts](#elastic-container-service-ecs-concepts)
   - [ECS - Cluster Mode](#ecs---cluster-mode)
@@ -103,7 +103,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Kubernetes 101](#kubernetes-101)
   - [Elastic Kubernetes Service (EKS) 101](#elastic-kubernetes-service-eks-101)
 
-- [🉐 Advanced EC2](#-advanced-ec2)
+- [🉐 Advanced EC2](#advanced-ec2)
   - [Bootstrapping EC2 Using User Data](#bootstrapping-ec2-using-user-data)
   - [Enhanced Bootstrapping with CFN-INIT](#enhanced-bootstrapping-with-cfn-init)
   - [EC2 Instance Roles & Profile](#ec2-instance-roles--profile)
@@ -128,7 +128,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Routing Policy 7: Geoproximity Routing](#routing-policy-7-geoproximity-routing)
   - [R53 Interoperability](#r53-interoperability)
 
-- [💽 Relational Database Service (RDS)](#-relational-database-service-rds)
+- [💽 Relational Database Service (RDS)](#relational-database-service-rds)
   - [ACID vs BASE](#acid-vs-base)
   - [Database on EC2](#database-on-ec2)
   - [Relational Database Service (RDS)](#relational-database-service-rds)
@@ -142,7 +142,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Aurora Multi-Master Writes](#aurora-multi-master-writes)
   - [Database Migration Service (DMS)](#database-migration-service-dms)
 
-- [🧬 Network Storage & Data Lifecycle](#-network-storage--data-lifecycle)
+- [🧬 Network Storage & Data Lifecycle](#network-storage--data-lifecycle)
   - [Elastic File System (EFS) Architecture](#elastic-file-system-efs-architecture)
   - [AWS Backup](#aws-backup)
 
@@ -159,7 +159,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [SSL Offload & Session Stickiness](#ssl-offload--session-stickiness)
   - [Gateway Load Balancers (GWLB)](#gateway-load-balancers-gwlb)
 
-- [🌈 Serverless and Application Services](#-serverless-and-application-services)
+- [🌈 Serverless and Application Services](#serverless-and-application-services)
   - [Architecture Deep Dive](#architecture-deep-dive)
   - [AWS Lambda](#aws-lambda)
   - [Invocation](#invocation)
@@ -181,7 +181,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Amazon MQ](#amazon-mq)
   - [Amazon AppFlow](#amazon-appflow)
 
-- [🌍 Global Content Delivery and Optimization](#-global-content-delivery-and-optimization)
+- [🌍 Global Content Delivery and Optimization](#global-content-delivery-and-optimization)
   - [CloudFront Architecture](#cloudfront-architecture)
   - [CloudFront Behaviors](#cloudfront-behaviors)
   - [CF TTL and Invalidations](#cf-ttl-and-invalidations)
@@ -193,7 +193,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Lambda@Edge](#lambdaedge)
   - [AWS Global Accelerator](#aws-global-accelerator)
 
-- [🪐 Advanced VPC Networking](#-advanced-vpc-networking)
+- [🪐 Advanced VPC Networking](#advanced-vpc-networking)
   - [VPC Flow Logs](#vpc-flow-logs)
   - [Egress-Only Internet Gateway](#egress-only-internet-gateway)
   - [VPC Endpoints (Gateway)](#vpc-endpoints-gateway)
@@ -217,7 +217,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [FSx for Lustre](#fsx-for-lustre)
   - [AWS Transfer Family](#aws-transfer-family)
 
-- [🔐 Security, Deployment & Operations](#-security-deployment--operations)
+- [🔐 Security, Deployment & Operations](#security-deployment--operations)
   - [AWS Secrets Manager](#aws-secrets-manager)
   - [Application Layer (L7) Firewall](#application-layer-l7-firewall)
   - [Web Application Firewall (WAF)](#web-application-firewall-waf)
@@ -228,7 +228,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Amazon Inspector](#amazon-inspector)
   - [Amazon GuardDuty](#amazon-guardduty)
 
-- [🏢 Infrastructure as Code (CloudFormation)](#-infrastructure-as-code-cloudformation)
+- [🏢 Infrastructure as Code (CloudFormation)](#infrastructure-as-code-cloudformation)
   - [Physical & Logical Resources](#physical--logical-resources)
   - [Template and Pseudo Parameters](#template-and-pseudo-parameters)
   - [Intrinsic Functions](#intrinsic-functions)
@@ -248,7 +248,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [ChangeSets](#changesets)
   - [Custom Resources](#custom-resources)
 
-- [👃 NoSQL Databases & DynamoDB](#-nosql-databases--dynamodb)
+- [👃 NoSQL Databases & DynamoDB](#nosql-databases--dynamodb)
   - [DynamoDB - Architecture](#dynamodb---architecture)
   - [Operations, Consistency and Performance](#operations-consistency-and-performance)
   - [DynamoDB Local and Global Secondary Indexes](#dynamodb-local-and-global-secondary-indexes)
@@ -261,7 +261,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Redshift Architecture](#redshift-architecture)
   - [Redshift Resilience and Recovery](#redshift-resilience-and-recovery)
 
-- [🤖 Machine Learning](#-machine-learning)
+- [🤖 Machine Learning](#machine-learning)
   - [Amazon Comprehend](#amazon-comprehend)
   - [Amazon Kendra](#amazon-kendra)
   - [Amazon Lex](#amazon-lex)
@@ -275,7 +275,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Amazon SageMaker](#amazon-sagemaker)
   - [AWS Local Zones](#aws-local-zones)
 
-- [📝 Exam](#-exam)
+- [📝 Exam](#exam)
   - [General AWS Exam Technique](#general-aws-exam-technique)
   - [Question Technique](#question-technique)
   - [Services not covered in course](#services-not-covered-in-course)

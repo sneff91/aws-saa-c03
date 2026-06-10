@@ -15,13 +15,13 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Account and IAM Basics](#account-and-iam-basics)
   - [IAM Access Keys](#iam-access-keys)
 
-- [☁️ Cloud Computing Fundamentals](#cloud-computing-fundamentals)
+- [☁️ Cloud Computing Fundamentals](#️cloud-computing-fundamentals)
   - [Essential Characteristics of Cloud Computing](#essential-characteristics-of-cloud-computing)
   - [Public vs Private vs Hybrid vs Multi Cloud](#public-vs-private-vs-hybrid-vs-multi-cloud)
   - [Cloud Service Models](#cloud-service-models)
   - [🗣YAML - YAML Ain't Markup Language](#️yaml---yaml-aint-markup-language)
 
-- [🐣 AWS Fundamentals](#aws-fundamentals)
+- [🐣 AWS Fundamentals](#-aws-fundamentals)
   - [Public vs Private Services](#public-vs-private-services)
   - [AWS Global Infrastructure](#aws-global-infrastructure)
   - [Virtual Private Cloud (VPC) Basics](#virtual-private-cloud-vpc-basics)
@@ -35,7 +35,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Route53 Fundamentals](#route53-fundamentals)
   - [DNS Record Types](#dns-record-types)
 
-- [🦠 IAM, Account and AWS Organizations](#iam-account-and-aws-organizations)
+- [🦠 IAM, Account and AWS Organizations](#-iam-account-and-aws-organizations)
   - [IAM Identity Policies](#iam-identity-policies)
   - [IAM Users and ARNs](#iam-users-and-arns)
   - [IAM Groups](#iam-groups)
@@ -46,8 +46,8 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [CloudWatch Logs](#cloudwatch-logs)
   - [CloudTrail Essentials](#cloudtrail-essentials)
   - [AWS Control Tower](#aws-control-tower)
-
-- [💾 Simple Storage Service S3](#simple-storage-service-s3)
+  
+- [💾 Simple Storage Service S3](#-simple-storage-service-s3)
   - [S3 Security](#s3-security)
   - [S3 Static Hosting](#s3-static-hosting)
   - [Object Versioning & MFA Delete](#object-versioning--mfa-delete)
@@ -95,7 +95,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Horizontal and Vertical Scaling](#horizontal-and-vertical-scaling)
   - [Instance Metadata](#instance-metadata)
 
-- [🐳 Containers & ECS](#containers--ecs)
+- [🐳 Containers & ECS](#-containers--ecs)
   - [Introduction to Containers](#introduction-to-containers)
   - [Elastic Container Service (ECS) Concepts](#elastic-container-service-ecs-concepts)
   - [ECS - Cluster Mode](#ecs---cluster-mode)
@@ -103,7 +103,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Kubernetes 101](#kubernetes-101)
   - [Elastic Kubernetes Service (EKS) 101](#elastic-kubernetes-service-eks-101)
 
-- [🉐 Advanced EC2](#advanced-ec2)
+- [🉐 Advanced EC2](#-advanced-ec2)
   - [Bootstrapping EC2 Using User Data](#bootstrapping-ec2-using-user-data)
   - [Enhanced Bootstrapping with CFN-INIT](#enhanced-bootstrapping-with-cfn-init)
   - [EC2 Instance Roles & Profile](#ec2-instance-roles--profile)
@@ -113,7 +113,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [EC2 Dedicated Hosts](#ec2-dedicated-hosts)
   - [Enhanced Networking & EBS Optimized](#enhanced-networking--ebs-optimized)
 
-- [🛣️ Route 53 - Global DNS](#route-53---global-dns)
+- [🛣️ Route 53 - Global DNS](#️-route-53---global-dns)
   - [R53 Public Hosted Zones](#r53-public-hosted-zones)
   - [R53 Private Hosted Zones](#r53-private-hosted-zones)
   - [CNAME vs R53 Alias](#cname-vs-r53-alias)
@@ -146,7 +146,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Elastic File System (EFS) Architecture](#elastic-file-system-efs-architecture)
   - [AWS Backup](#aws-backup)
 
-- [⚖️ High Availability (HA) & Scaling](#high-availability-ha--scaling)
+- [⚖️ High Availability (HA) & Scaling](#️-high-availability-ha--scaling)
   - [Regional and Global AWS Architecture](#regional-and-global-aws-architecture)
   - [Evolution of Elastic Load Balancers (ELB)](#evolution-of-elastic-load-balancers-elb)
   - [Elastic Load Balancer Architecture (ELB)](#elastic-load-balancer-architecture-elb)
@@ -159,7 +159,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [SSL Offload & Session Stickiness](#ssl-offload--session-stickiness)
   - [Gateway Load Balancers (GWLB)](#gateway-load-balancers-gwlb)
 
-- [🌈 Serverless and Application Services](#serverless-and-application-services)
+- [🌈 Serverless and Application Services](#-serverless-and-application-services)
   - [Architecture Deep Dive](#architecture-deep-dive)
   - [AWS Lambda](#aws-lambda)
   - [Invocation](#invocation)
@@ -181,7 +181,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Amazon MQ](#amazon-mq)
   - [Amazon AppFlow](#amazon-appflow)
 
-- [🌍 Global Content Delivery and Optimization](#global-content-delivery-and-optimization)
+- [🌍 Global Content Delivery and Optimization](#-global-content-delivery-and-optimization)
   - [CloudFront Architecture](#cloudfront-architecture)
   - [CloudFront Behaviors](#cloudfront-behaviors)
   - [CF TTL and Invalidations](#cf-ttl-and-invalidations)
@@ -193,14 +193,14 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Lambda@Edge](#lambdaedge)
   - [AWS Global Accelerator](#aws-global-accelerator)
 
-- [🪐 Advanced VPC Networking](#advanced-vpc-networking)
+- [🪐 Advanced VPC Networking](#-advanced-vpc-networking)
   - [VPC Flow Logs](#vpc-flow-logs)
   - [Egress-Only Internet Gateway](#egress-only-internet-gateway)
   - [VPC Endpoints (Gateway)](#vpc-endpoints-gateway)
   - [VPC Endpoints (Interface)](#vpc-endpoints-interface)
   - [VPC Peering](#vpc-peering)
 
-- [🏞️ Hybrid Environments and Migration](#hybrid-environments-and-migration)
+- [🏞️ Hybrid Environments and Migration](#️-hybrid-environments-and-migration)
   - [Border Gateway Protocol 101](#border-gateway-protocol-101)
   - [IPSec VPN Fundamentals](#ipsec-vpn-fundamentals)
   - [AWS Site-to-Site VPN](#aws-site-to-site-vpn)
@@ -228,7 +228,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Amazon Inspector](#amazon-inspector)
   - [Amazon GuardDuty](#amazon-guardduty)
 
-- [🏢 Infrastructure as Code (CloudFormation)](#infrastructure-as-code-cloudformation)
+- [🏢 Infrastructure as Code (CloudFormation)](#-infrastructure-as-code-cloudformation)
   - [Physical & Logical Resources](#physical--logical-resources)
   - [Template and Pseudo Parameters](#template-and-pseudo-parameters)
   - [Intrinsic Functions](#intrinsic-functions)
@@ -248,7 +248,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [ChangeSets](#changesets)
   - [Custom Resources](#custom-resources)
 
-- [👃 NoSQL Databases & DynamoDB](#nosql-databases--dynamodb)
+- [👃 NoSQL Databases & DynamoDB](#-nosql-databases--dynamodb-)
   - [DynamoDB - Architecture](#dynamodb---architecture)
   - [Operations, Consistency and Performance](#operations-consistency-and-performance)
   - [DynamoDB Local and Global Secondary Indexes](#dynamodb-local-and-global-secondary-indexes)
@@ -261,7 +261,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Redshift Architecture](#redshift-architecture)
   - [Redshift Resilience and Recovery](#redshift-resilience-and-recovery)
 
-- [🤖 Machine Learning](#machine-learning)
+- [🤖 Machine Learning](#-machine-learning)
   - [Amazon Comprehend](#amazon-comprehend)
   - [Amazon Kendra](#amazon-kendra)
   - [Amazon Lex](#amazon-lex)
@@ -275,7 +275,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Amazon SageMaker](#amazon-sagemaker)
   - [AWS Local Zones](#aws-local-zones)
 
-- [📝 Exam](#exam)
+- [📝 Exam](#-exam)
   - [General AWS Exam Technique](#general-aws-exam-technique)
   - [Question Technique](#question-technique)
   - [Services not covered in course](#services-not-covered-in-course)
@@ -6161,7 +6161,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 
 
-# 👃NoSQL Databases & DynamoDB 🧨
+# 👃 NoSQL Databases & DynamoDB 🧨
 
 ## DynamoDB - Architecture
 
@@ -6493,7 +6493,7 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 
 
 
-# 🤖Machine Learning📘
+# 🤖 Machine Learning📘
 
 ## Amazon Comprehend
 

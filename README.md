@@ -15,7 +15,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Account and IAM Basics](#account-and-iam-basics)
   - [IAM Access Keys](#iam-access-keys)
 
-- [☁️ Cloud Computing Fundamentals](#️-cloud-computing-fundamentals)
+- [☁️ Cloud Computing Fundamentals](#cloud-computing-fundamentals)
   - [Essential Characteristics of Cloud Computing](#essential-characteristics-of-cloud-computing)
   - [Public vs Private vs Hybrid vs Multi Cloud](#public-vs-private-vs-hybrid-vs-multi-cloud)
   - [Cloud Service Models](#cloud-service-models)
@@ -113,7 +113,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [EC2 Dedicated Hosts](#ec2-dedicated-hosts)
   - [Enhanced Networking & EBS Optimized](#enhanced-networking--ebs-optimized)
 
-- [🛣️ Route 53 - Global DNS](#️-route-53---global-dns)
+- [🛣️ Route 53 - Global DNS](#route-53---global-dns)
   - [R53 Public Hosted Zones](#r53-public-hosted-zones)
   - [R53 Private Hosted Zones](#r53-private-hosted-zones)
   - [CNAME vs R53 Alias](#cname-vs-r53-alias)
@@ -146,7 +146,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Elastic File System (EFS) Architecture](#elastic-file-system-efs-architecture)
   - [AWS Backup](#aws-backup)
 
-- [⚖️ High Availability (HA) & Scaling](#️-high-availability-ha--scaling)
+- [⚖️ High Availability (HA) & Scaling](#high-availability-ha--scaling)
   - [Regional and Global AWS Architecture](#regional-and-global-aws-architecture)
   - [Evolution of Elastic Load Balancers (ELB)](#evolution-of-elastic-load-balancers-elb)
   - [Elastic Load Balancer Architecture (ELB)](#elastic-load-balancer-architecture-elb)
@@ -200,7 +200,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [VPC Endpoints (Interface)](#vpc-endpoints-interface)
   - [VPC Peering](#vpc-peering)
 
-- [🏞️ Hybrid Environments and Migration](#️-hybrid-environments-and-migration)
+- [🏞️ Hybrid Environments and Migration](#hybrid-environments-and-migration)
   - [Border Gateway Protocol 101](#border-gateway-protocol-101)
   - [IPSec VPN Fundamentals](#ipsec-vpn-fundamentals)
   - [AWS Site-to-Site VPN](#aws-site-to-site-vpn)

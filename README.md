@@ -1447,7 +1447,7 @@ Keys never leave KMS - Provides FIPS 140-2 (L2)**
 - KMS Keys are isolated to a region and lever leave
 - Multi-region keys exist
 - AWS Owned & Customer Owned
-- Customer Owned: AWS Managed og *Customer Managed KEYS*
+- Customer Owned: AWS Managed or *Customer Managed KEYS*
 - Customer Managed keys are more configurable
 - KMS Keys support rotation
 - Backing Key (and previous backing keys)
@@ -1522,13 +1522,7 @@ Keys never leave KMS - Provides FIPS 140-2 (L2)**
         
         ![Untitled](img/Untitled%2015.png)
         
-        | Method | Key Management | Encryption Processing | Extras |
-        |  |  |  |  |
-        | Client-Side | You | You |  |
-        | SSE-C | You | S3 |  |
-        | SSE-S3 | S3 | S3 |  |
-        | SSE-KMS | S3 & KMS | S3 | Rotation Control
-        Role Separation |
+		<img width="1755" height="838" alt="image" src="https://github.com/user-attachments/assets/36ef9b3a-4714-45f2-b7a7-93564283c482" />
         
         ![Untitled](img/Untitled%2016.png)
         

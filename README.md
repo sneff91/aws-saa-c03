@@ -1661,6 +1661,7 @@ Objects cannot be made publicly accessible. Any Access of data requires a retrie
     ### Why use replication?
     
     > SSR: Same Region Replication
+
     > CRR: Cross Region
 
     - SSR - Log Aggregation

@@ -1779,6 +1779,15 @@ SQL-Like statement*
 
 <img width="1886" height="890" alt="image" src="https://github.com/user-attachments/assets/3158f87c-9374-4f53-958c-3e3bec3406db" />
 
+### Multi-Region Access Points
+
+- Multi-Region Access Points provide a global endpoint that applications can use to fulfill requests from Amazon S3 buckets in multiple AWS Regions
+- You can use Multi-Region Access Points to build multi-Region applications with the same architecture that's used in a single Region, and then run those applications anywhere in the world
+- Instead of sending requests over the congested public internet, Multi-Region Access Points provides built-in network resilience with acceleration of internet-based requests to Amazon S3
+- Application requests made to a Multi-Region Access Point global endpoint uses AWS Global Accelerator to automatically route over the AWS global network to the closest proximity S3 bucket with an active routing status, similar to a Content Delivery Network (CDN)
+- Within Multi-Region Access Points, you can configure replication rules, either so that objects are replicated among all specified buckets, or so that objects are replicated from one or more specified buckets to one or more destination buckets
+  	- Creating replication rules this way will overwrite existing replication rules for the specified buckets
+  	- As with regular S3 replication, you can specify replication rules so that only objects matching one or more filters are flagged for replication
 
 
 

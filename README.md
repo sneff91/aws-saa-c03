@@ -1537,6 +1537,24 @@ Keys never leave KMS - Provides FIPS 140-2 (L2)**
         - Can set a default for a bucket when you don’t specify this header
         - Can also restrict what encryption is possible on a bucket
 
+### S3 Bucket Keys
+
+- When using SSE-KMS, S3 must make an API call to KMS for each object uploaded
+  	- This is due to that fact that a new Data Encryption Key (DEK) must be generated for encryption of each object uploaded
+  	- Costs for this can add up when a large number of objects are being uploaded at a time, as KMS is a billable service
+  	- Additionally, KMS throttles the number of requests, for which the exact number is based on the region
+
+- The solution to this is to use the Buckey Key feature when using SSE-KMS
+  	- When using Bucket Key, a time limited Bucket Key is instead generated using the KMS key, which is then used to create any number of keys to uniquely encrypt any number of objects within that bucket
+  	- As with other SSE encryption methods, the encrypted key generated for encryption of the object is stored alongside the object, which can later be decrypted by S3 using another API call to KMS
+  	- This reduces costs and improves scalability
+  	- If looking at the KMS events in CloudTrail, you will see the bucket ARN instead of the object ARN as the principal for the request
+  	- If previously disabled, enabling Buckey Key does not retroactively affect previously uploaded objects to an S3 bucket
+  	- When setting the S3 encryption type to SSE-KMS, Bucket Key is enabled by default
+  	- Bucket Keys work with same region replication and cross-region replication (when an object is replicated, it preserves the previously used encryption setting)
+
+<img width="1870" height="865" alt="image" src="https://github.com/user-attachments/assets/f32e9a6f-22a4-47cb-ae66-4dd05c58b4af" />
+
 ## S3 Object Storage Classes
 
 ### S3 Standard

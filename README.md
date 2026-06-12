@@ -7,7 +7,8 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
 
 - https://github.com/alozano-77/AWS-SAA-C02-Course#16-elastic-cloud-compute-ec2
 - https://tutorialsdojo.com/aws-cheat-sheets/
-
+- https://docs.google.com/document/d/1Mx3w9HBcA2IdC2jopkk5nX0fN63DdlXs3_AGbyrCVb4/edit?tab=t.0
+- NeuraFlash study resources
 
 ## Table of Contents
 

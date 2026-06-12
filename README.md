@@ -1645,24 +1645,24 @@ Objects cannot be made publicly accessible. Any Access of data requires a retrie
 
 ### S3 Replication Considerations
 
-- **Not retroactive!** Versioning needs to be ON
-- **One-way replication:** Source to destination
+- **Not retroactive by default! (but it can be done with additional configuration)** Versioning needs to be ON
+- **One-way replication by default:** Source to destination
     - Objects added to destination wont be added to source
-- Unencrypted, SSE-S3 & SSE-KMS (with extra config)
-    - Not SSE-C! ❗
-- Source bucket owner needs permissions to objects
+    - Support for bi-directional replication was later added, but extra configuration is required and it is not the default
+- Unencrypted, SSE-S3, SSE-KMS (with extra config), and SSE-C (historically this was not supported)
+- Source bucket owner needs permissions to objects - in the source bucket, if an object is not owned by that account, it will not be replicated
 - No system events, Glacier or Glacier Deep Archive
     - Lifecycle actions wont be replicated at destination
-    - Can’t replicate any objects within Glacier+
-- NO DELETES
+    - Can’t replicate any objects using the Glacier Flexible or Glacier Deep Archive storage classes
+- NO DELETES (by default)
     - Delete markers are not replicated
-    - Not enabled by default
+    - Not enabled by default, but this can be set up through DeleteMarkerReplication
     
     ### Why use replication?
     
     > SSR: Same Region Replication
-    CRR: Cross Region
-    > 
+    > CRR: Cross Region
+
     - SSR - Log Aggregation
     - SSR - Prod and Test Sync
     - SSR - Resilience with strict sovereignty

@@ -1775,7 +1775,7 @@ SQL-Like statement*
 - Access point policies control permissions, akin to having a mini bucket policy, however any permissions defined on the access point's policy must also be defined on the bucket's policy for permission to be granted
   	- You could manage the permissions solely on the access point policy and have wide-open permissions on the bucket policy itself to simplify access management
 - Created via Console or CLI:
-> aws s3control create-access-point --name <NEW-ACCESS-POINT-NAME> --account-id <ACCOUNT-ID> --bucket <BUCKET-NAME>
+> aws s3control create-access-point --name **NEW-ACCESS-POINT-NAME** --account-id **ACCOUNT-ID** --bucket **BUCKET-NAME**
 
 <img width="1886" height="890" alt="image" src="https://github.com/user-attachments/assets/3158f87c-9374-4f53-958c-3e3bec3406db" />
 

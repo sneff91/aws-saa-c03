@@ -1699,7 +1699,7 @@ SQL-Like statement*
 - You often want to retrieve the entire objects
 - S3/Glacier select let you use SQL-Like statements
     - select part of the object, pre-filtered by S3
-- CSV, JSON, Parquet, BSZIP2 compression for CSV and JSON
+- CSV, JSON, Parquet, BZIP2 compression for CSV and JSON
 
 ### Architecture
 

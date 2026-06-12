@@ -1763,6 +1763,22 @@ SQL-Like statement*
 
 ![Untitled](img/Untitled%2032.png)
 
+## S3 Access Points
+
+- Simplify managing access to S3 Buckets/Objects
+- In cases where you have a bucket with hundreds of objects with different prefixes, where different people require different access
+- Rather than attempting to manage access with a Bucket Policy, you conceptually split this by delegating access using S3 Access Points
+- You can create many different access points, each with different policies
+- Access access point is configurable for how it can be accessed - E.g. by the public internet versus from a particular VPC
+- Each access point has its own endpoint address which can be given to different teams, rather than the default endpoint for S3 and accessing the bucket as a whole
+- Access point policies control permissions, akin to having a mini bucket policy, however any permissions defined on the access point's policy must also be defined on the bucket's policy for permission to be granted
+  	- You could manage the permissions solely on the access point policy and have wide-open permissions on the bucket policy itself to simplify access management
+- Created via Console or CLI:
+> aws s3control create-access-point --name <NEW-ACCESS-POINT-NAME> --account-id <ACCOUNT-ID> --bucket <BUCKET-NAME>
+
+<img width="1886" height="890" alt="image" src="https://github.com/user-attachments/assets/3158f87c-9374-4f53-958c-3e3bec3406db" />
+
+
 
 
 # ⛅ Virtual Private Cloud (VPC)

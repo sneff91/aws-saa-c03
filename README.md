@@ -63,6 +63,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [S3 Events](#s3-events)
   - [S3 Access Logs](#s3-access-logs)
   - [S3 Object Lock](#s3-object-lock)
+  - [S3 Access Points](#s3-access-points)
 
 - [⛅ Virtual Private Cloud (VPC)](#virtual-private-cloud-vpc)
   - [VPC Sizing and Structure](#vpc-sizing-and-structure)

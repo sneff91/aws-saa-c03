@@ -1810,8 +1810,8 @@ SQL-Like statement*
 - **Avoid common ranges** - avoid future issues
 - Reserve 2+ networks per region being used per account
 
-| VPC Size | Netmask | Subnet Size | Hosts/Subet* | Subnets/VPC | Total IPs* |
-|  |  |  |  |  |  |
+| VPC Size | Netmask | Subnet Size | Hosts/Subnet* | Subnets/VPC | Total IPs* |
+|----------|---------|-------------|---------------|-------------|------------|
 | Micro | /24 | /27 | 27 | 8 | 216 |
 | Small | /21 | /24 | 251 | 8 | 2008 |
 | Medium | /19 | /22 | 1019 | 8 | 8152 |

@@ -1867,6 +1867,8 @@ VPC Design - End state
 - Cannot overlap with other subnets
 - Optional IPv6 CIDR (/64 subset of the /56 VPC - space for 256)
 - Subnets can communicate with other subnets in the VPC
+- When a subnet is configured as a public subnet, the resources in the subnet can be allocated a public IPv4 address and are permitted connectivity to and from the public internet
+- For a subnet to be configured as a public subnet, it must have an Internet Gateway (IGW)
 
 ### Subnet IP Addressing
 

@@ -2056,7 +2056,7 @@ Reduce admin overhead*
 
 ### What is NAT?
 
-- A set of processes - remapping source og dest IPs
+- A set of processes - remapping source or dest IPs
 - **IP masquerading:** Hiding CIDR Blocks behind one IP
 - Gives Private VID range **outgoing** internet* access
 

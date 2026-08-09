@@ -75,7 +75,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [VPC Security Groups (SG)](#vpc-security-groups-sg)
   - [Network Address Translation (NAT) and NAT Gateways](#network-address-translation-nat-and-nat-gateways)
 
-- [🖥 Elastic Compute Cloud (EC2) Basics](#elastic-compute-cloud-ec2-basics)
+- [🖥 Elastic Compute Cloud (EC2) Basics](#elastic-compute-cloud-ec2-basics-1)
   - [Virtualization 101](#virtualization-101)
   - [EC2 Architecture and Resilience](#ec2-architecture-and-resilience)
   - [EC2 Instance Types](#ec2-instance-types)

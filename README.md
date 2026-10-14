@@ -5361,6 +5361,8 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 - Primary location of data is AWS (S3)
 
+<img width="2457" height="1202" alt="image" src="https://github.com/user-attachments/assets/e447e2d5-4d94-4e8b-af96-06c33bbdaba4" />
+
 ## Storage Gateway Tape - VTL Mode
 
 > *Storage gateway in VTL mode allows the product to replace a tape based backup solution with one which uses S3 and Glacier rather than physical tape media.*

@@ -5251,7 +5251,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ## AWS Site-to-Site VPN
 
-> *AWS Site-to-Site VPN is a hardware VPN solution which creates a highly available IPSEC VPN between an AWS VPN and external network such as on-premises traditional networks. VPNs are quick to setup vs direct connect, don't offer the same high performance, but do encrypt data in transit.*
+> *AWS Site-to-Site VPN is a hardware VPN solution which creates a highly available IPSEC VPN between an AWS VPC and external network such as on-premises traditional networks. VPNs are quick to setup vs direct connect, don't offer the same high performance, but do encrypt data in transit.*
 > 
 - A logical connection between a VPC and on-premises network encrypted using IPSec, running over the **public internet**
 - Full HA - if you design and implement it correctly

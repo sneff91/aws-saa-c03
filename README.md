@@ -5779,6 +5779,10 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ![Untitled](img/Untitled%20199.png)
 
+- CloudHSM is deployed inside the AWS-managed CloudHSM VPC, and not in the customer VPC
+- By default, an HSM instance is deployed within a single AZ of the configured region
+- To achieve HA, you must deploy multiple HSMs in multiple AZs and configure them as a cluster
+
 ### CloudHSM Use Cases
 
 - No native AWS integration - e.g. no S3 SSE

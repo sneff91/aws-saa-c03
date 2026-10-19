@@ -3777,6 +3777,7 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
     - Replicas can read and be standby
 - No local storage - uses **cluster volume**
 - Faster provisioning and improved availability and performance
+- Aurora is compatible with MySQL and PostgreSQL database engines types
 
 ### Aurora Storage Architecture
 

@@ -2351,7 +2351,9 @@ https://instances.vantage.sh/
 - **Highest storage performance in AWS!**
 - Included in instance price
 - **ATTACH AT LAUNCH!**
-    - Can’t be added after launch
+    - Can’t be added after launch (i.e. cannot add to an existing EC2 instance, even when stopped)
+- Instance Store Volumes are ephemeral and data is lost when the instance is stopped or terminated
+    - Data in Instance Store Volumes IS retained when the instance is restarted
 
 ![Untitled](img/Untitled%2059.png)
 

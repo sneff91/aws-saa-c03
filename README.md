@@ -3645,6 +3645,7 @@ In case of failure of the primary DB, the CNAME points to the standby DB
 - **Same region only** (other AZs in the VPC)
 - Backups taken from Standby (removes performance impact)
 - AZ Outage, Primary Failure, Manual failover, Instance type change and software patching
+- Only supported on MySQL and PostgreSQL
 
 ## RBD Backups and Restores
 

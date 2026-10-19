@@ -2415,6 +2415,8 @@ https://instances.vantage.sh/
     - If 10GB of 40GB is used, the 10GB is copied
 - Future snaps are **incremental**
     - They only store the difference between this and previous snapshot
+    - If an earlier snapshot is deleted, only the changed data between it and later snapshots is deleted
+    - This allows you to delete an earlier snapshot without impacting your ability to restore to a snapshot that was taken thereafter
 - Volumes can be created (restored) from snapshots
 - Snapshots can be copied to another region
 - **STOP** and **START** of EC2 instances will move to another host

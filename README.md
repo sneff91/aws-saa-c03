@@ -4610,8 +4610,16 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
     - **FIFO = exactly-once**
     - FIFO Performance: 3000 messages per second with batching, or up to 300 messages per seconds without
         - Billed on “requests”
-        - 1 request = 1-10 messages up to 256KB total
-- **Short** (immediate) vs **Long** (**waitTimeSeconds)** Polling
+        - 1 request = 0-10 messages up to 256KB total
+        - Even if 0 messages are in the queue, you are billed for 1 request
+        - SQS is less efficient and less cost-effective the more often that you make requests
+- There are two ways to poll an SQS queue: **Short** (immediate) Polling **Long** (**waitTimeSeconds)** Polling
+      - Short Polling uses 1 request and can receive 0-10 messages
+          - If you use only use Short Polling, keeping a queue close to 0 length would require an almost constant stream of short polls (very expensive)
+      - Long Polling allows you to specify a duration using waitTimeSeconds up to 20 seconds
+          - If there are messages available in the queue at the time of the request, they will be returned (up to 10)
+          - Otherwise, the SQS queue will wait for messages to arrive, up to the waitTimeSeconds threshold specified
+          - Long Polling is cheaper than Short Polling, and is how you should poll SQS (when practical) as it uses fewer requests
 - Encryption at rest (**KMS)** & in-transit
 - Messages up to **256KB** in size - **link** to large data
 - Received messages are **hidden (VisibilityTimeout)**

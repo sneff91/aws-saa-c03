@@ -6624,7 +6624,6 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 - **Per image** or **per minute** (video) pricing
 - Integrates with applications & event-driven
 - Can even **analyse live video** streams - kinesis video streams
-- 
 
 ## Amazon Textract
 

@@ -3764,10 +3764,8 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 ## Amazon Aurora Architecture
 
 > *Aurora is a AWS designed database engine officially part of RDS*
-> 
-> 
+>
 > *Aurora implements a number of radical design changes which offer significant performance and feature improvements over other RDS database engines.*
-> 
 
 ### Aurora Key Differences
 
@@ -3782,18 +3780,19 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 ### Aurora Storage Architecture
 
 - Replication happens at storage level
+- **Cluster volume is replicated 6 ways across 3 AZs by default, regardless of how many instances you run** **[NEW]**
 - Primary is the only allowed to write to storage - other nodes can read
 - In case of damage or error, data is immediately repaired
 - More resilient than normal RDS
 - Up to 15 different replicas to failover to
-    - Quicker failover
+    - Quicker failover (typically ~30 seconds or less)
 
 ![Untitled](img/Untitled%2098.png)
 
 - All SSD Based - **high IOPS, low latency**
-- Storage is billed based on **what’s used**
-- **High water mark** - billed for the most used
-    - Being changed
+- Storage is billed based on **what's used**
+- **High water mark** - billed for the most used **[UPDATED]**
+    - Storage now shrinks automatically when data is freed, so billing follows actual usage rather than a permanent high water mark (verify against current docs for your engine version)
 - Storage which is freed up can be re-used
 - Replicas can be added and removed without requiring storage provisioning
 - Multiple endpoints
@@ -3802,10 +3801,21 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
         - Load balance across replicas
     - Custom endpoints
 
+### RDS vs Aurora: HA comparison **[NEW]**
+
+| Option | AZs | Failover targets | Engines |
+|---|---|---|---|
+| RDS Multi-AZ (instance) | 2 (primary + 1 standby) | Standby is **not readable** | All RDS engines |
+| RDS Multi-AZ **DB cluster** | 3 (1 writer + 2 readable standbys) | Readable standbys | MySQL, PostgreSQL only |
+| Aurora | 3 (storage always spans 3 AZs) | Up to 15 replicas | MySQL, PostgreSQL compatible |
+
+- Exam keyword: "3+ AZ resilience" for a managed SQL DB -> **Aurora**
+- Plain "Multi-AZ" = 2 AZs. Only "cluster" / "standbys (plural)" wording means the 3-AZ RDS option
+
 ### Cost
 
 - **No free-tier**
-- Aurora doesn’t support Micro Instances
+- Aurora doesn't support Micro Instances
 - Beyond RDS singleAZ (micro) Aurora offers better value
 - Compute - hourly charge, per second, 10 minute minimum
 - Storage - GB-month consumed, IO cost per request
@@ -3814,28 +3824,48 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 ### Aurora Restore, Clone and Backtrack
 
 - Backups in Aurora work in the same way as RDS
+    - Automated backups: max **35 days** retention, deleted with the cluster **[NEW]**
+    - Manual snapshots: kept until deleted, survive cluster deletion. Use for retention > 35 days (or AWS Backup for policy-based retention) **[NEW]**
 - Restores create a **new cluster**
 - Backtrack can be used which allow **in-place rewinds** to a previous point in time
 - Fast clones make a new database MUCH faster than copying all the data - **copy-on-write**
     - Uses a tiny amount of storage - only stores the data changed since the clone was created
 
-## Aurora Serverless
+## Aurora Serverless **[UPDATED - two versions exist]**
 
 > *Is to Aurora what Fargate is to EC2*
-> 
+
+The original course material describes **Serverless v1**. **Serverless v2** is the current version and behaves quite differently. Assume **v2** for current exam questions and real-world use.
 
 ### Aurora Serverless Concepts
 
 - Scalable - **ACU** : **Aurora Capacity Units**
 - Aurora Serverless cluster has a **MIN and MAX ACU**
 - Cluster adjusts based on load
-- Can go to **0 and be paused**
+- ~~Can go to 0 and be paused~~ **[UPDATED]**
+    - v1: could pause when idle (first connection after pause took ~30s+ to wake)
+    - v2: originally minimum 0.5 ACU (never fully idle). Newer releases added an optional **auto-pause to 0 ACUs**, with a resume delay
 - Consumption billing per-second basis
-- Same resilience as Aurora (6 copies across AZs)
+- Same resilience as Aurora (6 copies across 3 AZs)
 
 ### Aurora Serverless Architecture
 
 ![Untitled](img/Untitled%2099.png)
+
+*(Diagram shows the v1 architecture: a proxy fleet in front of serverless compute. v2 does not use this model.)*
+
+### Serverless v1 vs v2 **[NEW]**
+
+| | v1 (legacy, retired/retiring) | v2 (current) |
+|---|---|---|
+| Scaling speed | Slow, coarse steps (double/halve ACUs) | Near-instant, fine-grained (0.5 ACU steps) |
+| Disruption while scaling | Needs a "scaling point"; connections can drop | Non-disruptive |
+| Cluster type | Own type (`engine-mode: serverless`) | Normal provisioned-mode cluster using `db.serverless` instance class |
+| Mix with provisioned instances | No | **Yes** (e.g. provisioned writer + serverless readers) |
+| Multi-AZ / read replicas | Limited | Full support, up to 15 replicas |
+| **Global Database** | **No** | **Yes** |
+| Performance Insights | No | Yes |
+| Scale to zero | Yes (pause) | Optional auto-pause (newer feature) |
 
 ### Aurora Serverless: Use Cases
 
@@ -3846,32 +3876,50 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 - **Development** and **test** databases
 - **Multi-tenant** applications
 
+Exam keywords: "unpredictable", "spiky", "intermittent", "don't want to manage capacity" -> **Serverless v2**. "Steady, predictable, high-performance" -> **provisioned Aurora**.
+
+*Worked example:* a PostgreSQL DB with an unpredictable 5-day monthly sales spike (writes included) -> Serverless v2. Aurora Auto Scaling only adds **read replicas** (slow, doesn't scale the writer), and a bigger fixed instance is still a guess.
+
 ## Aurora Global Database
 
-> *Aurora global databases are a feature of Aurora Provisioned clusters which allow data to be replicated globally providing significant RPO and RTO improvements for BC and DR planning. Additionally global databases can provide performance improvements for customers .. with data being located closer to them, in a read-only form.*
-> 
-> 
+> *Aurora global databases are a feature of Aurora clusters which allow data to be replicated globally providing significant RPO and RTO improvements for BC and DR planning. Additionally global databases can provide performance improvements for customers .. with data being located closer to them, in a read-only form.*
+>
 > *Replication occurs at the storage layer and is generally ~1second between all AWS regions.*
-> 
+
+**[UPDATED]** The original text said Global Database is a feature of "Aurora Provisioned clusters". That reflects the v1 era. Today it works with **provisioned clusters and Serverless v2**, but **not Serverless v1**.
 
 ### Aurora Global DB Architecture
 
 ![Untitled](img/Untitled%20100.png)
 
+- One **primary region** (read/write) + secondary regions (read-only)
+- Replication is at the **storage layer**, not by the DB engine, so there is no load on primary compute
+
 ### Key Concepts
 
 - **Cross-Region DR and BC (Business Continuity)**
     - RPO and RTO low
+    - Typical figures: **RPO ~1 second, RTO under ~1 minute** (promote a secondary region)
 - **Global Read Scaling -** low latency performance improvements
 - **~1s or less** replication between regions
 - No impact on DB performance
 - Secondary regions can have **16 replicas**
-- Currently MAX 5 secondary regions
+- Currently MAX 5 secondary regions (**verify**: AWS has been raising this limit, check current docs)
+
+### DR option comparison **[NEW]**
+
+| Option | Relational | Typical RPO | Typical RTO | Notes |
+|---|---|---|---|---|
+| Aurora Global Database | Yes | ~1 second | < 1 minute | Best fit for "relational + cross-region + RPO 1s + RTO < 1 min" |
+| RDS cross-region read replica | Yes | Async, can exceed 1s | Minutes, **manual** promotion | Cheaper, pilot-light / warm-standby style DR |
+| DynamoDB Global Tables | **No** (NoSQL) | Seconds | Near zero | Pick only when the workload is key-value |
 
 ## Aurora Multi-Master Writes
 
 > *Multi-master write is a mode of Aurora Provisioned Clusters which allows multiple instances to perform reads and writes at the same time - rather than only one primary instance having write capability in a single-master cluster. This lesson steps through the architecture and explains how the conflict resolution works.*
-> 
+
+**[UPDATED - verify]** Multi-Master was a limited feature (Aurora MySQL only) and AWS has since stopped offering it for new clusters. It's still described in older SAA-C03 material, so know the concept for the exam, but don't expect it in real designs. Check current AWS docs before relying on it.
+
 - Default Aurora mode is **single-master**
 - **One R/W** and **0+ Read Only** Replicas
 - Cluster Endpoint is used to write, read endpoint is used for load balanced reads

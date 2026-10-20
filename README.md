@@ -1618,7 +1618,7 @@ Objects cannot be made publicly accessible. Any Access of data requires a retrie
 > Sort of waterfall between the S3 Storage Classes
 > 
 
-![Untitled](img/Untitled%2024.png)
+<img width="815" height="470" alt="Untitled 24" src="https://github.com/user-attachments/assets/c84a443c-9a69-40cd-a02f-8025127cd519" />
 
 ## S3 Replication
 

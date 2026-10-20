@@ -1617,8 +1617,12 @@ Objects cannot be made publicly accessible. Any Access of data requires a retrie
 
 > Sort of waterfall between the S3 Storage Classes
 > 
+- Previously, lifecycle rules only were able to trigger when an object was a minimum of 30 days old
+- As of July 2026, S3 now allows you to lifecycle change objects as soon as they are created
 
-<img width="815" height="470" alt="Untitled 24" src="https://github.com/user-attachments/assets/c84a443c-9a69-40cd-a02f-8025127cd519" />
+![Untitled](img/Untitled%2024.png)
+
+- The only restriction is that you cannot change the storage class from S3 One Zone-IA to S3 Glacier Instant Retrieval
 
 ## S3 Replication
 
@@ -1631,7 +1635,7 @@ Objects cannot be made publicly accessible. Any Access of data requires a retrie
     - Role is not trusted by default since its configured by another account
     - Add bucket policy to allow role
     
-    ![Untitled](img/Untitled%2025.png)
+![Untitled](img/Untitled%2025.png)
     
 
 ### S3 Replication Options

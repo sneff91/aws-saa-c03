@@ -2431,6 +2431,7 @@ https://instances.vantage.sh/
 - Snapshots can be copied to another region
 - **STOP** and **START** of EC2 instances will move to another host
     - You will lose your data
+- EBS Snapshots are automatically encrypted at rest, as well as data-in-transit between the EBS storage servers and the host EC2 instances is encrypted in transit
 
 ### EBS Snapshots/Volume Performance
 

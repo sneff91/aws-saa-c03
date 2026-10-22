@@ -6309,6 +6309,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - **Really fast - single-digit milliseconds (SSD based)**
 - Backups, point-in-time recovery, encryption at rest
 - Event-Driven integration - do things when data changes
+- Items' partition keys are spread across DynamoDB's internal partitions
 
 ### DynamoDB Considerations
 
@@ -6348,6 +6349,11 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - ❗1 RCU is **1 x 4KB** read operation per second ❗
 - ❗1 WCU is **1 x 1KB** write operation per second ❗
 - Every table has a RCU and WCU burst pool (**300 seconds)**
+- Throughput is spread across partitions, and each partition has its own limit (roughly 1,000 WCU and 3,000 RCU per second)
+	- If most writes target a small number of key values, those items land on the same few partitions, resulting in a hot partition
+   	- If a partition's WCU/RCU limits are reached, it throttles requests, even though the total provisioned WCU may have capacity
+   	- To alleviate this, choose a partition key with **high cardinality** (many unique values) and evenly distributed access
+   	- Additionally, if a key is naturally hot, use write sharding: append a random or calculated suffix (e.g. `2026-10-22#7` to spread writes across multiple key values, then query across the suffixes when reading
 
 ### Query
 

@@ -5912,19 +5912,27 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Scans EC2 instances & the instance OS
     - also containers
 - Vulnerabilities and deviations against best practice
-- Length - 15min, 1 hour, 8/12 hours or 1 day
-- Provides a **report of findings** ordered by priority
-- Network Assessment (Agentless)
-- Network & Host Assessment (Agent)
-- Rules packages determine what is checked
-- Network Reachability (no agent required)
-- Agent can provided additional os visibility
-- Check reachability end to end. EC2, ALB, DX, ELB, ENI, IGW, ACLs, RT’s, SG’s, Subnets, VPCs, VGWs and VPC Peering
-- RecognizedPortWithListener, RecognizedPortNoListener, UnRecognizedPortWithListener
-- Packages (Host assessments, agent required)
-- Common vulnerabilities and exposures (CVE)
-- Center for Internet Security (CIS) Benchmarks
-- Security best practices for Amazon Inspector
+- Run an assessment of various lengths to identify unusual traffic or configurations - 15min, 1 hour, 8/12 hours or 1 day
+- Provides a **report of findings** ordered by priority after assessment
+- Able to conduct two types of assessments: Network Assessment (agentless), or Network & Host Assessment (agent)
+  	- Network Assessment is only able to monitor network traffic and provides less detail
+  	- Network & Host Assessment looks at OS-level vulnerabilities and is able to provide much more information
+- Rules packages determine what is checked:
+  	- The Network Reachability rules package (agent or agentless - see details below)
+  		- Checks how an instance, or group of instances, is exposed to public networks
+  	  	- Check reachability end to end. EC2, ALB, DX, ELB, ENI, IGW, ACLs, RT’s, SG’s, Subnets, VPCs, VGWs and VPC Peering
+  		- Returns the following types of findings:
+  	        - RecognizedPortWithListener (recognized port exposed to the internet with a listening service)
+  	        - RecognizedPortNoListener (recognized port exposed to the internet, but no service listening)
+  	        - RecognizedPortNoAgent (recognized port exposed to the internet, but unable to determine if anything is listening as no agent is installed)
+  	        - UnrecognizedPortWithListener (unrecognized port exposed to internet with a listening service)
+  	- Host assessment rules package (agent required)
+	- CVE rules package: Common Vulnerabilities and Exposures (CVE) (agent required)
+  	- Center for Internet Security (CIS) Benchmarks rules package
+  	- Security best practices for Amazon Inspector rules package - includes things like disabling root login over SSH, using only modern SSH versions, password complexity checks, and permission checks of certain folders
+- Amazon Inspector publishes assessment findings to EventBridge, which can trigger SNS topics downstream
+- Assessment findings are also sent automatically to AWS Security Hub (if enabled)
+- They can also be written to an S3 bucket
 
 ## Amazon GuardDuty
 

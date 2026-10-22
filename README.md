@@ -6309,6 +6309,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - **Really fast - single-digit milliseconds (SSD based)**
 - Backups, point-in-time recovery, encryption at rest
 - Event-Driven integration - do things when data changes
+- Every item in a DynamoDB table needs a unique identity. That identity is either a partition key alone, or a partition key plus a sort key (called a composite key)
 - Items' partition keys are spread across DynamoDB's internal partitions
 
 ### DynamoDB Considerations

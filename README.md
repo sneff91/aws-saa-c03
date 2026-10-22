@@ -5193,9 +5193,11 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Provide **private access** to **S3** and **DynamoDB**
 - **Prefix List** added to **route table** → Gateway Endpoint
 - Highly Available across all AZs in a region by default
-- Endpoint policy is used to control what it can access
+- Endpoint policy is used to control what endpoints (e.g. S3 buckets) that VPC can access
 - Regional - **can’t access cross-region services**
-- **Prevent Leaky Buckets** - S3 Buckets can be set to private only by allowing access ONLY from a gateway endpoint
+- **Prevent Leaky Buckets** - S3 Buckets can have their bucket policy set to private only by allowing access ONLY from a VPC/gateway endpoint:
+  <img width="676" height="217" alt="image" src="https://github.com/user-attachments/assets/1576ade4-5059-4bc0-aeac-39285c5ce9b4" />
+
 
 ![Untitled](img/Untitled%20165.png)
 

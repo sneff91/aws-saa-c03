@@ -1735,7 +1735,7 @@ SQL-Like statement*
 
 ## S3 Access Logs
 
-> *Provides detailed records for the requests that are made to a bucket*
+> *S3 server access logs provide detailed records for the requests that are made to an S3 bucket, including the requestor, bucket name, request time, request action, referrer, turnaround time, and error code information.*
 > 
 
 ![Untitled](img/Untitled%2031.png)

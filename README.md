@@ -4753,6 +4753,10 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Streams store a **24-hour** moving window of data
     - can be increased to a maximum of **365 days** (additional cost)
 - Multiple consumers access data from that moving window
+- You can create an event source mapping between a stream and Lambda:
+  	- Lambda's service then polls the shard for you automatically (you don't write polling code), but the direction is Lambda pulling, not Kinesis pushing
+  	- When items are present, the batch is passed to Lambda as an input in the form of an array, which contains one or more items from the batch
+  	- The items include the value of the data itself (encoded in base64), as well as the Kinesis stream/shard metadata
     
     ![Untitled](img/Untitled%20144.png)
     

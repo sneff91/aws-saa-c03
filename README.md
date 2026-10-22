@@ -6961,7 +6961,7 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 
 ### AppSync
 
-> *AWS AppSync is a serverless **GraphQL** and Pub/Sub API service that simplifies building modern web and mobile applications.*
+> *AWS AppSync is a serverless **GraphQL** and Pub/Sub API service that simplifies building modern web and mobile applications. It can connect mobile apps to DynamoDB and push real-time Pub/Sub subscriptions*
 > 
 
 ### AWS CodePipeline

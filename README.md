@@ -3712,7 +3712,8 @@ First snap is FULL → Next incremental (only diff is size)
 
 RDS Backups are snapshots of the entire RDS - not only one database
 
-Every 5 minutes Transaction Logs is written to S3
+Every 5 minutes Transaction Logs is written to an AWS-managed S3 bucket (you cannot administer this S3 bucket)
+
 
 ### RDS Restores
 
@@ -4031,7 +4032,8 @@ Exam keywords: "unpredictable", "spiky", "intermittent", "don't want to manage c
 > 
 - **Fully managed** data-protection (backup/restore) service
 - **Consolidate** management into one place across **accounts** and across **regions**
-- Supports a **wide range** of AWS products
+- Supports a **wide range** of AWS products, including RDS
+  	- You can manage RDS backups in an automated way beyond the standard RDS automatic 35 day backup limit (i.e. keep backups for 90 days)
 - **Backup Plans** - frequency, window, lifecycle, vault, region copy
 - **Resources** - What resources are backed up
 - **Vaults** - Backup **destination** (container) - assign KMS key for encryption

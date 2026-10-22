@@ -618,6 +618,7 @@ Provide access to VMs known as instances*
 - Different instance sizes and capabilities
 - On-Demand Billing - **Per second**
 - Local on-host storage or **Elastic Block Store (EBS)**
+- You are limited to running On-Demand Instances per your vCPU-based On-Demand Instance limit, purchasing 20 Reserved Instances, and requesting Spot Instances per your dynamic Spot limit per region
 - Instance composition: CPU, memory, disk and networking. All four are billed when running. ❗
     - Only disk storage is billed when stopped (EBS).
 

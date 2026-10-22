@@ -3223,6 +3223,7 @@ aws ssm get-parameters-by-path --path /my-app/ --with-decryption # decrypt encry
 
 - Storage for **configuration & secrets**
 - String, StringList & SecureString
+- String and StringList parameters are free, SecureStrings are encrypted and have a cost
 - License codes, Database Strings, Full Configs & Passwords
 - Hierarchies & Versioning
 - Plaintext and Ciphertext
@@ -5723,11 +5724,12 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 > 
 > *For supported services it can even adjust the credentials of the service itself.*
 > 
-- It does share functionality with Paramter Store
+- It does share functionality with Parameter Store
 - ❗Designed for **secrets (passwords, API KEYS…)**❗
 - Usable via **console, CLI, API** or **SDK’s** (integration)
 - ❗Supports **automatic rotation** - this uses Lambda❗
 - ❗Directly integrates with some AWS Products (RDS)❗
+- While a good tool for storing secrets, it charges per secret per month, plus per API call, so it is more expensive than Parameter Store
 
 💡 **RDS, integration, secrets or rotation → Secrets Manager > Parameter Store!**
 

@@ -621,6 +621,12 @@ Provide access to VMs known as instances*
 - You are limited to running On-Demand Instances per your vCPU-based On-Demand Instance limit, purchasing 20 Reserved Instances, and requesting Spot Instances per your dynamic Spot limit per region
 - Instance composition: CPU, memory, disk and networking. All four are billed when running. ❗
     - Only disk storage is billed when stopped (EBS).
+- The hibernation feature can only be enabled for an instance at launch
+	- If an instance is put into hibernation mode, the contents of RAM are staved to the encrypted EBS root volume and then instance is stopped
+   	- While hibernated, you pay no instance usage charges, only for EBS storage and any Elastic IPs assigned to the instance (as when being in the normal 'stopped' state)
+   	- Hibernation is only supported on specific instance families and OS versions, including supported Windows Server versions
+   	- There is a 60-day maximum period that an instance can hibernate for
+   	- Hibernation allows for faster startup after "stopping" while otherwise reducing costs outside of specified hours
 
 ### Instance Lifecycle
 

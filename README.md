@@ -576,12 +576,17 @@ VPCs are created within a region. VPCs cannot communicate outside their network 
 - The higher the /number is the smaller the range. /17 is half the size of /16.
 - **IGW: Internet Gateway**
     - VPC
+- **Prefix Lists**
+    - A reusable set of blocks in CIDR notation
+    - AWS-managed (maintained by AWS for service ranges) or Customer-manager (customer can create, delete, and modify)
+    - List exists in one region. Other regions need their own copy, or you can share it cross-account or cross-region using AWS RAM
 - **SG: Security Group**
-    - (EC2) Instances
+    - Applied to EC2 Instances
     - Stateful
         - Incoming rule change = allow outgoing response traffic
             - Open port 80 for incoming will allow port 80 for outgoing response
     - Allow rules only
+    - Can specify a prefix list for inbound or outbound permit/deny
     - Instances can have multiple SGs
     - Allow CIDR, IP, SG as destination
 - **NACL: Network Access Control List**
@@ -1909,6 +1914,7 @@ VPC Design - End state
     - A subnet has to have a route table. Either main by VPC or a custom.
 - Route table controls what happens to data as it leaves the subnet that route table is associate with
 - **A subnet can only be associated with 1 route table at the time**
+- A Route table can reference a prefix list for routing destinations
 
 ### Internet Gateway (IGW)
 
@@ -5404,6 +5410,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Share **between accounts using AWS RAM**
 - Peer with different regions - same or cross account
 - **Less complexity** vs without TGW
+- Supports prefix lists as routing destinations
 
 ### Architecture
 

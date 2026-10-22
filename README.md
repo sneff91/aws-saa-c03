@@ -4448,6 +4448,7 @@ Equally distribute load to instances across AZs
 ### Security
 
 - Resource policies can only be changed via CLI or API
+- Saved environment variables for a Lambda function can be saved encrypted via KMS using the "Enable encryption helpers" option for extra security. Other users of the console cannot see/decrypt these environment variables without the necessary KSM permissions
 
 ![Untitled](img/Untitled%20128.png)
 

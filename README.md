@@ -6942,7 +6942,8 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 
 ### Amazon Neptune
 
-- Graph database
+- Neptune is AWS’s managed graph database, built for highly connected data such as customers, products, and purchases, and for recommendation engines and social graph queries.
+- Neptune Streams is Neptune’s native change log, which records every change to the graph in order. It’s built in, so there’s no separate service to build or run.
 
 ### Amazon DocumentDB
 

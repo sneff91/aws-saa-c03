@@ -5909,6 +5909,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 	- encrypted-volumes
 	- restricted-ssh
 	- root-account-mfa-enabled
+   	- iam-password-policy (check whether a changed password is compliant against an IAM password policy)
 
 ![Untitled](img/Untitled%20200.png)
 

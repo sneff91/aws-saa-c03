@@ -5887,8 +5887,11 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ## AWS Config
 
-> *AWS Config is a service which records the configuration of resources over time (configuration items) into configuration histories.*
-> 
+## AWS Config
+
+> *Config continuously records the configuration of your AWS resources (an S3 bucket’s settings, a security group’s rules, an ACM certificate’s expiry date) and keeps a history of changes.
+> Rules evaluate those recorded configurations against a desired state and mark each resource COMPLIANT or NON_COMPLIANT.
+> It answers “what does my environment look like, and does it follow our rules?”*
 > 
 > *All the information is stored regionally in an S3 config bucket.*
 > 
@@ -5899,6 +5902,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Does not prevent changes happening - no protection
 - Regional Service - supports cross-region and account aggregation
 - Changes can generate SNS notifications and near-real time events via EventBridge & Lambda
+- Config has both AWS-managed rules and custom (customer-managed) rules
 
 ![Untitled](img/Untitled%20200.png)
 

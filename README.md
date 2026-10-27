@@ -5903,6 +5903,12 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Regional Service - supports cross-region and account aggregation
 - Changes can generate SNS notifications and near-real time events via EventBridge & Lambda
 - Config has both AWS-managed rules and custom (customer-managed) rules
+- Examples:
+	- acm-certificate-expiration-check (e.g. check days before expiry)
+	- s3-bucket-public-read-prohibited
+	- encrypted-volumes
+	- restricted-ssh
+	- root-account-mfa-enabled
 
 ![Untitled](img/Untitled%20200.png)
 

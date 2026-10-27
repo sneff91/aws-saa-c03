@@ -2567,11 +2567,14 @@ KMS Keys - aws/ebs or customer managed
         - DNS can be used for internal use
     - 0 or more secondary IPs
     - 0 or 1 Public IPv4 Address → random IP → random dns based on IP
-    - 1 elastic IP per private IPv4 address
+    - EC2 instances retain the public IP when restarting, however public IP addresses are relinquished and re-assigned a new one if the instance is stopped (or hibernated)
+    - Up to 1 elastic IP per private IPv4 address
         - If you assign it
         - Removes the Public IPv4
         - Replaces with the Elastic IP
         - You can’t regain the old public IPv4 if you remove Elastic IP
+        - Unlike a regular public IP, Elastic IP addresses ARE retained when an instance is stopped and started
+        - Elastic IPs are only changed/lost when ownership is manually and explicitly released
     - 0 or more IPv6 addresses
     - Security Groups
     - Source/Destination Check

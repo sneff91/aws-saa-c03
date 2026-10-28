@@ -5920,6 +5920,7 @@ Exam decision logic:
 - CloudHSM is deployed inside the AWS-managed CloudHSM VPC, and not in the customer VPC
 - By default, an HSM instance is deployed within a single AZ of the configured region
 - To achieve HA, you must deploy multiple HSMs in multiple AZs and configure them as a cluster
+- Clusters can be configured for automatic backups, which are encrypted and stored by AWS
 
 ### CloudHSM Use Cases
 

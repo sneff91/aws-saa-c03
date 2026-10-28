@@ -6996,8 +6996,68 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 
 ### Amazon EMR (Elastic MapReduce)
 
-> ***Easily run and scale Apache Spark, Hive, Presto, and other big data workloads***
+> ***EManaged big data platform for running open-source frameworks like Apache Hadoop, Spark, Hive, HBase, Presto/Trino, and Flink at scale. It handles provisioning, configuration, and tuning of the cluster, so you don’t build a Hadoop cluster by hand. The exam treats it as “big data processing with open-source tools.”***
 > 
+
+#### Cluster architecture
+
+| Node type | Role | Notes |
+|---|---|---|
+| **Primary (master)** | Coordinates the cluster, tracks job status, and runs services like the YARN ResourceManager and HDFS NameNode | Single point of failure by default. Enable **multi-primary (3 primary nodes)** for high availability. |
+| **Core** | Runs tasks **and stores HDFS data** | Removing core nodes risks data loss, so avoid Spot here. |
+| **Task** | Runs tasks only, with **no HDFS storage** | Optional. Ideal for **Spot Instances**, since losing one loses no data. |
+
+**Why it matters:** the exam likes "reduce cost" scenarios where the answer is Spot Instances on **task nodes**. Interruptions don't affect HDFS data because task nodes don't hold any.
+
+#### Storage options
+
+- **HDFS:** distributed storage on the cluster's own disks (instance store or EBS). It's fast but **ephemeral**, and the data is gone when the cluster terminates.
+- **EMRFS:** lets the cluster read and write **S3** as if it were a file system. This is the persistent option.
+- **Local file system:** temporary scratch space on each instance.
+
+**Best practice:** keep input and output data in **S3** and use **transient clusters** that spin up, process, and terminate. You pay only while the cluster runs, and the data survives. Use **long-running clusters** only when you need persistent HDFS or constant availability (HBase is an example).
+
+#### Deployment options
+
+| Option | What it means | Pick it when |
+|---|---|---|
+| **EMR on EC2** | You choose instance types and manage the cluster size | You need full control and customization |
+| **EMR Serverless** | No cluster management; you submit jobs and AWS provisions the capacity | You want the least operational overhead |
+| **EMR on EKS** | Run Spark jobs on an existing EKS cluster | You already run Kubernetes and want to share its capacity |
+
+#### Scaling and cost
+
+- **EMR managed scaling** adjusts core and task nodes automatically based on workload.
+- **Instance fleets** let you mix instance types and purchasing options (On-Demand and Spot), while **instance groups** use one type per group.
+- Pricing is the underlying EC2 cost plus a per-second EMR surcharge.
+- A cluster runs in a **single AZ**, so for resilience you rely on S3 as the durable store and recreate clusters rather than spreading one across AZs.
+
+#### Security (brief)
+
+- IAM roles: an **EMR service role** (for EMR to act on your behalf) and an **EC2 instance profile** (for the nodes to reach S3 and other services).
+- Encryption at rest (S3, EBS, HDFS) and in transit, using KMS.
+- **Kerberos** for authentication, and **Lake Formation** integration for fine-grained access control on data.
+
+#### Typical use cases
+
+Log and clickstream analysis, large-scale ETL, machine learning on big datasets, genomics, financial risk modeling, and indexing.
+
+#### EMR vs. similar services
+
+| Service | Think of it as | Choose it over EMR when |
+|---|---|---|
+| **AWS Glue** | Serverless ETL with a data catalog | You want managed ETL without choosing frameworks or managing clusters |
+| **Amazon Athena** | Serverless SQL queries on S3 | You only need ad hoc SQL |
+| **Amazon Redshift** | Data warehouse for structured, analytics-optimized data | You need fast SQL analytics on structured data |
+| **Kinesis** | Real-time streaming ingestion | The data is a live stream (EMR can still process it with Spark or Flink) |
+
+#### Decision logic for the exam
+
+1. The scenario mentions **Hadoop, Spark, Hive, HBase, or Presto**, or "migrate an existing big data workload." That's **EMR**.
+2. The scenario asks for **cost reduction** on EMR. Use **Spot on task nodes**, **transient clusters**, and **S3 for storage**.
+3. It asks for **high availability of the primary node**. Use **multi-primary**.
+4. It asks for **no cluster management** with Spark or Hive. That's **EMR Serverless**.
+5. It's a simple serverless ETL job with no framework requirement, or SQL on S3. That's **Glue** or **Athena**, not EMR.
 
 ### Elastic Network Adapter
 

@@ -5686,7 +5686,7 @@ What FSx for NetApp ONTAP is
 - Storage efficiency: deduplication, compression, and compaction.
 - Automatic tiering: infrequently accessed data moves to a cheaper capacity pool tier.
 - Accessibility: it can be reached from on-premises (via Direct Connect or VPN) and from other VPCs.
-- 
+
 ### Key Points
 
 - Scratch is designed for **pure performance**

@@ -5668,6 +5668,25 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - **Persistent** offers **50 MB/s, 100MB/s and 200 MB/s per TiB** of storage
 - Burst up to **1300 MB/s** per TiB (credit system)
 
+### Conceptually
+
+![Untitled](img/Untitled%20191.png)
+
+### Architecture
+
+![Untitled](img/Untitled%20192.png)
+
+## FSx for NetApp ONTAP
+
+> *FSx for NetApp ONTAP is AWS running NetApp’s ONTAP software for you*
+> 
+What FSx for NetApp ONTAP is
+- Multi-protocol access: one file system can serve NFS to Linux, SMB to Windows, and iSCSI block storage at once. This is its biggest differentiator from FSx for Windows and FSx for Lustre.
+- NetApp features: snapshots, FlexClone (instant, space-efficient clones), and SnapMirror replication. SnapMirror lets you replicate between on-premises NetApp and AWS, which makes DR and migration easy.
+- Storage efficiency: deduplication, compression, and compaction.
+- Automatic tiering: infrequently accessed data moves to a cheaper capacity pool tier.
+- Accessibility: it can be reached from on-premises (via Direct Connect or VPN) and from other VPCs.
+- 
 ### Key Points
 
 - Scratch is designed for **pure performance**
@@ -5679,14 +5698,6 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - You can **backup to S3** with **BOTH** (manual or automatic 0-35 day retention)
 - ❗SMB/Windows → FSx for Windows ❗
 - ❗POSIX / High Performance → FSx for Lustre ❗
-
-### Conceptually
-
-![Untitled](img/Untitled%20191.png)
-
-### Architecture
-
-![Untitled](img/Untitled%20192.png)
 
 ## AWS Transfer Family
 

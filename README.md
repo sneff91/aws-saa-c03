@@ -7008,3 +7008,83 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 
 > *AWS Artifact provides on-demand downloads of AWS security and compliance documents, such as AWS ISO certifications, Payment Card Industry (PCI), and Service Organization Control (SOC) reports.*
 > 
+
+## AWS Batch vs. AWS ParallelCluster vs. AWS PCS (SAA-C03)
+
+### At a glance
+
+| | **AWS Batch** | **AWS ParallelCluster** | **AWS PCS** |
+|---|---|---|---|
+| **What it is** | Fully managed batch job scheduler | Open-source tool that deploys HPC clusters into your account | Fully managed Slurm service |
+| **Who runs the scheduler** | AWS | You (Slurm runs on a head node you own) | AWS (managed Slurm controller) |
+| **Unit of work** | Containerized job | Slurm job (batch scripts, MPI) | Slurm job |
+| **Console / API** | Yes, a native service | No, CLI/API/UI you deploy yourself | Yes, a native service |
+| **Underlying compute** | EC2 (On-Demand/Spot), Fargate, EKS | EC2 | EC2 |
+| **Operational burden** | Lowest | Highest (patch and upgrade the head node, manage the stack) | Low to medium (you manage AMIs and node groups, not the controller) |
+| **Typical workload** | Loosely coupled, containerized, embarrassingly parallel | Traditional tightly coupled HPC (MPI) | Same as ParallelCluster, but managed |
+| **Cost** | Free; pay for resources | Free; pay for resources | Pay for resources plus the managed controller (check current pricing) |
+
+### AWS Batch
+
+**Core concepts**
+- **Job definition:** the container image, vCPU/memory, and command, like a task definition.
+- **Job queue:** jobs wait here, with priorities.
+- **Compute environment:** the pool of capacity that runs the jobs. It can be managed (Batch scales EC2 or Fargate for you) or unmanaged.
+- **Array jobs** run many copies of one job. **Job dependencies** let one job wait on another.
+- **Multi-node parallel jobs** exist, so it can handle some tightly coupled work, but that's not its sweet spot.
+
+**Pick it when**
+- The jobs are independent and containerizable: video transcoding, genomics pipelines, Monte Carlo simulations, nightly data processing.
+- You want no cluster to manage and want to use Spot for cost savings.
+- The question says "batch processing" and "fully managed" with no mention of Slurm or MPI.
+
+**Don't pick it when**
+- The scenario needs a specific HPC scheduler (Slurm) or has existing HPC scripts to lift and shift.
+- It needs ultra-low-latency inter-node communication as the central requirement.
+
+### AWS ParallelCluster
+
+**Core concepts**
+- Open-source, AWS-supported cluster management tool. It is not a console service.
+- You write a YAML config, and the `pcluster` CLI turns it into a CloudFormation stack.
+- It deploys a head node (the scheduler and login point), compute queues that scale with demand, and shared storage.
+- v3 supports Slurm and AWS Batch as schedulers (SGE and Torque were dropped in v3).
+- Linux only. Supports On-Demand, Reserved, and Spot Instances.
+- Free; you pay only for the underlying resources.
+
+**Pick it when**
+- You're migrating an on-premises HPC cluster and want the same Slurm workflow in AWS.
+- You need full control over the head node, AMIs, and software stack.
+- The scenario mentions MPI, HPC, or a tightly coupled workload and doesn't ask for a managed scheduler.
+
+**Don't pick it when**
+- The question stresses minimal operational overhead or "fully managed". That points to Batch or PCS.
+- The jobs are simple independent containers. That's Batch.
+
+### AWS Parallel Computing Service (PCS)
+
+**Core concepts**
+- AWS runs the Slurm controller. You define the cluster, compute node groups, and queues, and you supply the EC2 launch templates and AMIs for the nodes.
+- It has its own console, API, and IAM actions, which is the main way it differs from ParallelCluster.
+
+**Pick it when**
+- You want Slurm-based HPC with no head node to patch or babysit.
+- The question stresses managed Slurm.
+
+**Don't pick it when**
+- The workload is containerized batch work, which is Batch.
+- You need deep customization of the scheduler host, which is ParallelCluster.
+- Exam caution: PCS is newer than the SAA-C03 blueprint, so treat it as lower probability than the other two.
+
+### Shared building blocks
+
+- **Elastic Fabric Adapter (EFA):** a network interface that bypasses the OS network stack for low-latency, high-throughput node-to-node traffic. It's needed for tightly coupled MPI workloads.
+- **Cluster placement group:** packs instances close together in one AZ for low latency. It trades fault tolerance for network performance.
+- **FSx for Lustre:** the parallel file system for HPC. It integrates with S3, so S3 serves as the durable data lake and Lustre as the fast scratch layer.
+- **Spot Instances:** cheap capacity that works well when jobs tolerate interruption, which makes it a fit for all three services.
+
+### Decision logic for the exam
+
+1. Do the keywords say "tightly coupled", "MPI", or "low latency between nodes"? Look for **EFA + cluster placement group + FSx for Lustre**, deployed via ParallelCluster (or PCS if managed Slurm is the stated requirement).
+2. Does it say "containers", "independent jobs", "fully managed", or "no infrastructure to manage"? That's **Batch**.
+3. Does it say "Slurm", "existing HPC scripts", or "migrate on-premises HPC"? That's **ParallelCluster** or **PCS**. Choose PCS when the question says managed or reduced operational overhead, and ParallelCluster when it needs customization or control.

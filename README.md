@@ -7106,10 +7106,6 @@ Log and clickstream analysis, large-scale ETL, machine learning on big datasets,
 
 > Managed service for coordinating work across distributed application components. It tracks the state of a multi-step workflow (which steps ran, which are pending, what failed) so your application code doesn't have to. Steps can be run by code on AWS, on-premises, or by humans.
 
-#### What it is
-
-**Amazon SWF is a managed service for coordinating work across distributed application components.** It tracks the state of a multi-step workflow (which steps ran, which are pending, what failed) so your application code doesn't have to. Steps can be run by code on AWS, on-premises, or by **humans**.
-
 **Status:** SWF is a legacy service. AWS recommends **AWS Step Functions** for new applications. It still appears on the exam mainly as a comparison point, usually against Step Functions and SQS.
 
 #### Core concepts

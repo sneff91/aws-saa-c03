@@ -5802,6 +5802,26 @@ Exam decision logic:
 
 ![Untitled](img/Untitled%20198.png)
 
+## AWS Firewall Manager
+
+> *AWS Firewall Manager is a central management layer, not a firewall itself. It lets you define security policies once and have them applied automatically across many accounts and resources, using AWS Organizations. WAF is the enforcement layer on a single resource, and Firewall Manager is the policy layer that deploys and maintains WAF (and other protections) at scale.*
+>
+
+The core idea:
+- You designate a Firewall Manager administrator account in your AWS Organization.
+- You create a policy that says what protection to apply and to which accounts and resources. Scope can be targeted by account, OU, resource type, or tags.
+- Firewall Manager deploys the rules into each member account and auto-remediates. When a new account or resource appears in scope, it’s protected automatically. If someone removes the protection, it’s put back.
+
+Prerequisites:
+- AWS Organizations with all features enabled.
+- AWS Config enabled in the accounts. Firewall Manager relies on it to track resources.
+
+Exam decision logic:
+- The scenario is a single account or app needing SQL injection or XSS protection, rate limiting, or geo-blocking. That’s WAF.
+- The scenario says multiple accounts, AWS Organizations, centrally manage, enforce a consistent policy, or automatically protect new accounts and resources. That’s Firewall Manager.
+- The scenario asks for enforcing a baseline security group or auditing security groups across accounts. That’s Firewall Manager, because WAF doesn’t deal with security groups at all.
+- Firewall Manager doesn’t replace WAF. A “WAF policy” in Firewall Manager is what pushes the WAF rules out, so the two usually appear together in the right answer.
+
 ### Web Access Control lists (WEBACL)
 
 - WEBACL Default Action (ALLOW or BLOCK) - Non matching

@@ -7104,8 +7104,73 @@ Log and clickstream analysis, large-scale ETL, machine learning on big datasets,
 
 ### Amazon Simple Workflow Service (SWF)
 
-> The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that coordinate work across distributed components
-> 
+> Managed service for coordinating work across distributed application components. It tracks the state of a multi-step workflow (which steps ran, which are pending, what failed) so your application code doesn't have to. Steps can be run by code on AWS, on-premises, or by humans.
+
+#### What it is
+
+**Amazon SWF is a managed service for coordinating work across distributed application components.** It tracks the state of a multi-step workflow (which steps ran, which are pending, what failed) so your application code doesn't have to. Steps can be run by code on AWS, on-premises, or by **humans**.
+
+**Status:** SWF is a legacy service. AWS recommends **AWS Step Functions** for new applications. It still appears on the exam mainly as a comparison point, usually against Step Functions and SQS.
+
+#### Core concepts
+
+| Component | Role |
+|---|---|
+| **Workflow starter** | Any application that kicks off a workflow execution (for example a web app or a mobile app) |
+| **Decider** | Your code that holds the workflow logic. It reads the workflow history and decides what happens next (schedule an activity, retry, complete, fail). |
+| **Activity worker** | Your code that performs a single step (an activity task), then reports the result back to SWF |
+| **Activity task / decision task** | The units of work SWF hands out to activity workers and deciders |
+| **Task list** | A named queue that workers and deciders **poll** for tasks. Use different lists to route tasks to different worker pools. |
+| **Domain** | A namespace that isolates a set of workflows, like a project boundary |
+| **Workflow history** | A durable, ordered record of every event in an execution. It is the source of truth the decider uses. |
+
+**How it flows**
+1. The starter begins a workflow execution in a domain.
+2. SWF puts a decision task on the decider's task list.
+3. The decider polls, reads the history, and schedules an activity task.
+4. An activity worker polls the activity task list, does the work, and returns the result.
+5. SWF records the result in the history, creates a new decision task, and the loop repeats until the decider completes the workflow.
+
+#### Key properties (exam favorites)
+
+- **Tasks are assigned once and never duplicated.** SWF guarantees a task is handed to a single worker. Contrast this with SQS Standard queues, which are at-least-once, so consumers must handle duplicates.
+- **Task-oriented API, not message-oriented.** SWF tracks tasks and execution state. SQS only moves messages.
+- **Supports human steps.** Activities can wait on manual actions (approvals, reviews), which suits processes that include people.
+- **Long-running workflows:** executions can last **up to 1 year**.
+- **Workers can run anywhere:** EC2, on-premises servers, or other environments, because workers poll SWF over the API.
+- **Tracking and visibility:** the full execution history is available for auditing and debugging.
+- **Retries, timers, and signals:** it supports timeouts, retry handling, timers, and external signals into a running workflow.
+- **You write the decider logic in code** (using the SDK or the AWS Flow Framework), which gives full flexibility but more to build and maintain.
+
+#### SWF vs. Step Functions vs. SQS
+
+| | **SWF** | **Step Functions** | **SQS** |
+|---|---|---|---|
+| **What it is** | Workflow coordinator with decider logic in your code | Serverless workflow orchestrator with a visual designer | Message queue |
+| **Workflow logic** | You code the decider | Defined declaratively in **Amazon States Language (JSON)** | None; you build it yourself |
+| **Execution model** | Workers **poll** for tasks | Calls AWS services directly (Lambda, ECS, Batch, SNS, SQS, and more) | Consumers poll messages |
+| **Human steps** | Yes | Yes, via callback patterns | Not built in |
+| **Operational effort** | Highest (you run deciders and workers) | Lowest | Low |
+| **Status** | Legacy | **Recommended for new workloads** | Active |
+
+#### When to pick it (and when not to)
+
+**Pick SWF when the scenario says**
+- The workflow needs **external signals**, **child workflows**, or **custom decider logic** that Step Functions can't express.
+- Tasks must be handled by **on-premises** systems or **humans**, with **at-most-once** task assignment.
+- The question names **SWF** explicitly or describes an existing SWF application.
+
+**Don't pick it when**
+- The scenario is a **new** orchestration need. The answer is almost always **Step Functions**.
+- It only needs decoupling or buffering between components. That's **SQS**.
+- It needs pub/sub fan-out. That's **SNS** or **EventBridge**.
+
+#### Decision logic for the exam
+
+1. "Coordinate **multiple steps** with **retries, state tracking, and branching**" with **no mention of legacy** points to **Step Functions**.
+2. "Ensure each task is processed **only once**" with workflow coordination, or "**manual approval step** in a process," points to **SWF** (Step Functions is also valid if the question allows it).
+3. "Decouple components and **buffer** messages" points to **SQS**.
+4. If both SWF and Step Functions appear as answers and nothing says "legacy" or "existing", prefer **Step Functions**.
 
 ### AWS Artifact
 

@@ -5699,6 +5699,18 @@ What FSx for NetApp ONTAP is
 - ❗SMB/Windows → FSx for Windows ❗
 - ❗POSIX / High Performance → FSx for Lustre ❗
 
+## FSx for _____ comparison
+- One more to know: FSx for OpenZFS
+	- It’s NFS-based and aimed at Linux workloads migrating from on-premises ZFS.
+	- It offers very low latency plus snapshots and clones.
+	- It’s the least likely of the four to be the “obvious” answer.
+
+Exam decision logic:
+- The scenario needs NFS and SMB (or iSCSI) from the same data, or mentions NetApp, SnapMirror, or on-prem NetApp migration. That’s ONTAP.
+- It mentions Windows, SMB, Active Directory, or DFS, with nothing else. That’s FSx for Windows.
+- It mentions HPC, ML, sub-millisecond latency, or S3 integration for fast processing. That’s Lustre.
+- It needs shared file storage for Linux only and none of the above fits. That’s EFS, or OpenZFS if ZFS is named.
+
 ## AWS Transfer Family
 
 > *AWS Transfer Family is a secure transfer service that enables you to transfer files into and out of AWS storage services.*

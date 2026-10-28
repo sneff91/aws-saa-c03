@@ -6996,7 +6996,7 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 
 ### Amazon EMR (Elastic MapReduce)
 
-> ***EManaged big data platform for running open-source frameworks like Apache Hadoop, Spark, Hive, HBase, Presto/Trino, and Flink at scale. It handles provisioning, configuration, and tuning of the cluster, so you don’t build a Hadoop cluster by hand. The exam treats it as “big data processing with open-source tools.”***
+> ***Managed big data platform for running open-source frameworks like Apache Hadoop, Spark, Hive, HBase, Presto/Trino, and Flink at scale. It handles provisioning, configuration, and tuning of the cluster, so you don’t build a Hadoop cluster by hand. The exam treats it as “big data processing with open-source tools.”***
 > 
 
 #### Cluster architecture

@@ -4226,7 +4226,8 @@ Equally distribute load to instances across AZs
         - Memory, Disk, I/O etc. metrics also available
     - **Stepped Scaling:** Bigger +/- based on difference
     - **Target Tracking**: Desired Aggregate CPU = 40% - ASG handle it
-- **Cooldown Periods:** How long to wait before provisioning
+- **Predictive Scaling** - Analyzes historical load data (CloudWatch metrics from EC2 instances) and using machine learning, forecasts upcoming demand and schedules capacity ahead of time
+- **Cooldown Periods:** How long to wait before provisioning instances when a trigger occurs - prevents constant scaling scales during brief spikes that result in scaling up/down
 
 ### ASG + Load Balancers
 

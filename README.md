@@ -3760,6 +3760,7 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 - **Failure only** - watch for data corruption
 - **Read only - until promoted**
     - Not reversible - delete and create new RR
+    - RR's must be promoted manually, and client applications must be configured to query the new write replica (promoted RR)
 - **Global availability improvements → Global resilience**
 - **Scale READS, NOT WRITES**
 

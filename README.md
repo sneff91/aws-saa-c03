@@ -2824,8 +2824,9 @@ Relogin
 
 ## Reserved Instances
 
-> *Aka Standard Reserved*
-- Cheaper hourly rates than Compute Savings Plan, but you are tied to an instance family, size, and region.
+### Standard Reserved Instances
+
+- Cheaper hourly rates than EC2 Instance Savings Plan and Compute Savings Plan, but you are tied to an instance family, size, and region.
 	- A variation, Convertible Reserved Instance, allows family changes at a more expensive rate
 
 ### Scheduled Reserved Instances
@@ -2846,16 +2847,23 @@ Relogin
 - **Zonal reservations** only apply to **one AZ** providing **billing discounts and capacity reservation** in **that AZ**
 - **On-demand capacity reservations** can be booked to ensure you always have access to **capacity in an AZ** when you need it - but **at full on-demand price.** No term limits - but you pay **regardless of if you consume it.**
 
-### Compute Savings Plan
+### EC2 Instance Savings Plan
 
 - A **hourly commitment** for a **1-3 year** term
 - A reservation of **general compute $ amounts**($20 per hour for 3 years)
     - Or a specific **EC2 Savings plan** - flexibility on size & OS
-- Compute products, currently **EC2, Farge & Lambda**
+- Covers only EC2
 - Products have an **on-demand rate** and a **savings plan** rate
 - Resource usage consumes savings plan commitment at the reduced savings plan rate
 - Beyond your commitment **on-demand is used**
-- Have flexibility to change instance family
+
+### Compute Savings Plan
+
+- Similar to EC2 Instance Savings Plan
+- A **hourly commitment** for a **1-3 year** term
+- Applies across any instance family, size, Region, OS, and tenancy
+- SUpported by EC2, Fargate, and Lambda
+- Slightly less discount than EC2 Instance Savings Plan (66% as opposed to 72%)
 
 ## Instance Status Checks & Auto Recovery
 

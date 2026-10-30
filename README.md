@@ -4470,7 +4470,6 @@ Equally distribute load to instances across AZs
 ## Invocation
 
 > Three types: Synchronous, asynchronous and Event Source mappings
-> 
 
 ### Synchronous
 
@@ -4497,6 +4496,10 @@ Equally distribute load to instances across AZs
 ### Startup Times
 
 ![Untitled](img/Untitled%20132.png)
+
+### Lambda Function URLs
+
+- Lambda functions can be configured to enable a URL for the Lambda function, allowing it to be executed via HTTP(S) (including publicly, over the internet via the AWS Public zone)
 
 ## CloudWatchEvents and EventBridge
 

@@ -4497,6 +4497,10 @@ Equally distribute load to instances across AZs
 
 ![Untitled](img/Untitled%20132.png)
 
+- Lambda SnapStart: Lambda runs your initialization code once when you publish a version, snapshots the initialized execution environment, and restores new instances from that snapshot instead of initializing from scratch. The AWS FAQ says it can improve startup performance from several seconds to as low as sub-second
+	- Similar to provisioned concurrency
+	- Supports Java, Python 3.12+, and NET 8+ currently
+
 ### Lambda Function URLs
 
 - Lambda functions can be configured to enable a URL for the Lambda function, allowing it to be executed via HTTP(S) (including publicly, over the internet via the AWS Public zone)

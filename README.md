@@ -5933,8 +5933,6 @@ Exam decision logic:
 
 ## AWS Config
 
-## AWS Config
-
 > *Config continuously records the configuration of your AWS resources (an S3 bucket’s settings, a security group’s rules, an ACM certificate’s expiry date) and keeps a history of changes.
 > Rules evaluate those recorded configurations against a desired state and mark each resource COMPLIANT or NON_COMPLIANT.
 > It answers “what does my environment look like, and does it follow our rules?”*

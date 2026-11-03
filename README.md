@@ -6393,6 +6393,11 @@ Exam decision logic:
 - NoSQL **Public** Database-as-a-Service (**DBaaS**). **Key/Value & Document**
 - **No self-managed servers** or infrastructure
 - **Manual/automatic** provisioned performance IN/OUT or **on-demand**
+	- On-demand: similar to EC2 on-demand - you pay per use, but at a high price point. Best for bursty, unpredictable traffic
+   	- Provisioned: you specify a certain amount of WCU and RCUs to pay for. Cheaper than on-demand, but must have predictable traffic to not exceed thresholds, else risk throttling
+   	  	- Provisioned also allows you to select either a 1-year or 3-year reserved capacity (optional)
+   	  	- Commit long term for cheaper RCU/WCUs
+   	  	- If using reserved capacity, you are billed at a cheaper rate but billed 24/7. If not using reserved capacity, you can use an Application Auto Scaling (another AWS service that DynamoDB integrates with) to dynamic change provisioned WCU and RCUs based on different policies, like a scheduled policy (e.g. increase RCU/WCU are a particular time of day)
 - Highly Resilient
     - **Across AZs**
     - ***Optionally GLOBAL***

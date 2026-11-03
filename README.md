@@ -4718,7 +4718,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Received messages are **hidden (VisibilityTimeout)**
     - then either reappear (retry) or are explicitly deleted
 - **Dead-Letter Queues** can be used for problem messages
-- ASGs can scale and Lambdas invoke based on queue length
+- ASGs can scale and invoke Lambdas automatically (for event-driven workflows; you don't write polling code) based on queue length
 - Queue policy
     - Like resource policy
 - ❗Default 4 days, max 14 days ❗
@@ -4777,7 +4777,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
     - can be increased to a maximum of **365 days** (additional cost)
 - Multiple consumers access data from that moving window
 - You can create an event source mapping between a stream and Lambda:
-  	- Lambda's service then polls the shard for you automatically (you don't write polling code), but the direction is Lambda pulling, not Kinesis pushing
+  	- Lambda's service then polls the shard for you automatically (you don't write polling code, just as with SQS event-driven Lambdas), but the direction is Lambda pulling, not Kinesis pushing
   	- When items are present, the batch is passed to Lambda as an input in the form of an array, which contains one or more items from the batch
   	- The items include the value of the data itself (encoded in base64), as well as the Kinesis stream/shard metadata
     

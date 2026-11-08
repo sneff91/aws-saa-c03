@@ -1637,6 +1637,7 @@ Objects cannot be made publicly accessible. Any Access of data requires a retrie
     - e.g. to S3 Glacier
 - Expiration actions
     - Delete object(s) after a certain time
+- S3 Lifecycle can manage noncurrent versions automatically. A rule on noncurrent versions lets you keep a set number of the newest noncurrent versions and expire the rest
 
 ### Transitions
 

@@ -4054,12 +4054,14 @@ Exam keywords: "unpredictable", "spiky", "intermittent", "don't want to manage c
 > 
 - **Fully managed** data-protection (backup/restore) service
 - **Consolidate** management into one place across **accounts** and across **regions**
-- Supports a **wide range** of AWS products, including RDS
+- Supports a **wide range** of AWS products, including RDS, DynamoDB, Aurora, FSx, EFS, EBS, and others
   	- You can manage RDS backups in an automated way beyond the standard RDS automatic 35 day backup limit (i.e. keep backups for 90 days)
 - **Backup Plans** - frequency, window, lifecycle, vault, region copy
 - **Resources** - What resources are backed up
 - **Vaults** - Backup **destination** (container) - assign KMS key for encryption
-- Vault **Lock** - write-once, read-many (**WORM)**, 72 hour cool off, then even AWS can’t delete
+- Vault **Lock** - write-once, read-many (**WORM)**, 72 hour cool off
+  	- Has the same two modes as S3 Object Lock (compliance and governance)
+  	- Even AWS can’t delete
 - **On-demand** - manual backups created
 - **PITR**  - Point in time recovery
 

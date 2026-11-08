@@ -4342,6 +4342,21 @@ Equally distribute load to instances across AZs
 
 ![Untitled](img/Untitled%20117.png)
 
+## ASG Termination Policies
+
+With the default termination policy, the behaviour of the Auto Scaling group is as follows:
+
+1. If there are instances in multiple Availability Zones, choose the Availability Zone with the most instances and at least one instance that is not protected from scale in. If there is more than one Availability Zone with this number of instances, choose the Availability Zone with the instances that use the oldest launch template.
+
+2. Determine which unprotected instances in the selected Availability Zone use the oldest launch template. If there is one such instance, terminate it.
+
+3. If there are multiple instances to terminate based on the above criteria, determine which unprotected instances are closest to the next billing hour. (This helps you maximize the use of your EC2 instances and manage your Amazon EC2 usage costs.) If there is one such instance, terminate it.
+
+4. If there is more than one unprotected instance closest to the next billing hour, choose one of these instances at random.
+
+EC2's ASG **Predictive scaling assumes that your Auto Scaling group is homogenous, which means that all EC2 instances are of equal capacity**. The forecasted capacity can be inaccurate if you are using a variety of EC2 instance sizes and types on your Auto Scaling group.
+With a target tracking scaling policy, you can increase or decrease the current capacity of the group based on a target value for a specific metric. This policy will help resolve the over-provisioning of your resources. The scaling policy adds or removes capacity as required to keep the metric at, or close to, the specified target value. In addition to keeping the metric close to the target value, a target tracking scaling policy also adjusts to changes in the metric due to a changing load pattern.
+
 ## ASG Health Check Comparison - EC2 vs ELB
 
 > *Amazon EC2 Auto Scaling can determine the health status of an instance using one or more of the following:*

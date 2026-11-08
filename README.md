@@ -7342,3 +7342,7 @@ Log and clickstream analysis, large-scale ETL, machine learning on big datasets,
 | Simple web hosting, WordPress, predictable low cost, minimal AWS knowledge | **Lightsail** |
 | Production architecture with scaling, high availability, customization | **EC2 + Auto Scaling + ALB** |
 | Deploy application code without managing infrastructure, still on standard AWS services | **Elastic Beanstalk** |
+
+### AWS Data Transfer Terminal
+
+A physical location where you bring your own storage devices and upload directly to AWS endpoints such as S3 or EFS over a high-bandwidth connection. You reserve a time slot in the console and it’s billed by port-hour. Serves as an alternative option to order an AWS Snowball for large-scale, one-off uploads to AWS

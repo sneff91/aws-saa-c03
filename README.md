@@ -4562,7 +4562,8 @@ Equally distribute load to instances across AZs
     - **EventBridge can have additional busses**
 - Rules match incoming events (or schedules)
     - Schedules sort of like CRON jobs
-- Route the events to **1+ Targets**, e.g. Lambda
+- Route the events to **1+ Targets**, e.g. Lambda, ECS tasks, SNS topics, etc
+- Many different AWS services publish events to the EventBridge bus by default.
 
 ### EventBridge / CloudWatch Events
 
@@ -5731,6 +5732,7 @@ What FSx for NetApp ONTAP is
 - Storage efficiency: deduplication, compression, and compaction.
 - Automatic tiering: infrequently accessed data moves to a cheaper capacity pool tier.
 - Accessibility: it can be reached from on-premises (via Direct Connect or VPN) and from other VPCs.
+- Consistent sub-millisecond file operation latencies with SSD storage, essential for block storage workloads in Windows environments. Amazon FSx for Windows File Server only provides shared, low-latency file storage for Windows environments and doesn’t support access to shared block storage. Windows environments that have a requirement for iSCI, shared block devices (LUNs), or disks they must format with NTFS and treat as attached disks require FSx for NetApp ONTAP
 
 ### Key Points
 

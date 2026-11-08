@@ -1757,26 +1757,34 @@ SQL-Like statement*
 - 1 - **Retention** Period
 - 2 - **Legal Hold**
 - **Both, One** or **the other**, or **none**
-- A bucket can have **default object lock settings**
 
 ### Retention
 
 - Specify **DAYS & YEARS -** A Retention Period
-- **COMPLIANCE** - **Cant be adjusted, deleted, overwritten**
-    - even by account root user
-    - **until retention expires**
-    - Use due to compliance
-- **GOVERNANCE** - special **permissions** can be granted allowing lock settings to be adjusted
-- **s3:ByPassGovernanceRetention**
-    - x-ams-bypass-governance-retention:true (console default)
+- A bucket can have default retention mode/policy set on the bucket, which the object version then inherit upon creation if not otherwise configured explicitly
+- There are two retention modes: Compliance and Governance:
+	- **COMPLIANCE** - **CANNOT be adjusted, deleted, or overwritten**
+	    - **until retention expires**
+	    - Not even by the root user!
+	    - Typically used for mandatory compliance with org/legal requirements
+	- **GOVERNANCE** - special **permissions** can be granted allowing lock settings to be adjusted
+		- **s3:ByPassGovernanceRetention**
+		    - Permits usage of the x-ams-bypass-governance-retention:true header, which allows deletion
+	        	- This header is included when deleting an object via the console (but not CLI/API)
+		- Otherwise object cannot be deleted
+    	- In governance mode, the retention policy can be shortened or removed, or the mode can be changed to compliance
+        - Protects against accidental deletes, with an escape hatch for admins
 
 ### Legal Hold
 
 - Set on an **object version - ON or OFF**
     - No retention
-- **NO DELETES** or changes until removed
-- s3:PutObjectLegalHold is required to add or remove
-- Prevent accidental deletion of object version
+    - No default Legal Hold configuration inherited by objects from the bucket (object-level setting only)
+- **NO DELETES** or changes until legal hold flag is removed
+- s3:PutObjectLegalHold is required to add or remove the flag
+- Typically used to prevent deletion of object version for an unknown length of time during an audit or legal investigation
+- Is used independent of a retention policy/mode (compliance/governance, as above)
+  	- An object version can have retention, a legal hold, both, or neither
 
 ![Untitled](img/Untitled%2032.png)
 

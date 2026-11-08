@@ -970,6 +970,19 @@ Used when FT and HA don’t work***
 - Map host names to IP
 - A: www → ipv4
 - AAAA: → ipv6
+- A A or AAAA record can be configured as an AWS alias record. This is an AWS proprietary thing, not a standard DNS thing:
+	- An alias-type record will resolve the DNS query to the IP address of a configuration item for supported AWS services
+		- E.g. An alias-type record can point to an Application Load Balancer, which has it's on publicly accessible hostname
+	    - When the original DNS record is queried, R53 instead provides the IP address to the client that the Application Load Balancer resolves to
+- If not configured as an alias, most records (including A, AAAA, MX, TXT, CNAME, etc) can be configured for one of eight different Routing policies:
+	1. Simple routing
+	2. Failover
+	3. Multi Value
+	4. Weighted
+	5. Latency
+	6. Geolocation
+	7. Geoproximity
+	8. IP-based
 
 ### CNAME Records
 
@@ -3660,6 +3673,7 @@ Reasons to NOT host DB on EC2:
 ### RDS Architecture
 
 ![Untitled](img/Untitled%2092.png)
+- You can enable Enhanced Monitoring to gain the ability to monitor different processes or threads in a DB instance, allowing you to measure the CPU and memory consumed by each process
 
 ### RDS Database Instance
 
@@ -5088,6 +5102,8 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 > 
 > *The features available differ based on using S3 origins vs Custom origins*
 > 
+- You can have multiple origins in an origin group
+- Origin groups automatically switch the the secondary origin if the primary origin encounters specific HTTP status code failure responses
 
 ## Securing CF and S3 using OAI
 

@@ -3822,6 +3822,8 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 
 ![Untitled](img/Untitled%2097.png)
 
+**Note**: IAM DB Authentication is _ONLY_ supported on PostgreSQL and MySQL databases in RDS.
+
 ## Amazon Aurora Architecture
 
 > *Aurora is a AWS designed database engine officially part of RDS*

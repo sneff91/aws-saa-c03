@@ -4718,6 +4718,11 @@ With a target tracking scaling policy, you can increase or decrease the current 
 ### Stages
 
 ![Untitled](img/Untitled%20139.png)
+- Blue-green: you run two complete environments side by side, blue (current) and green (new). Traffic is switched from one to the other, usually all at once, and rollback means switching back. The value is a clean cutover and instant rollback, but it costs a second full environment.
+
+- Canary release: you release the new version to a small slice of real production traffic inside the same environment, watch how it behaves, increase the percentage gradually, and then promote it. The value is limiting the damage if the new version has a problem, because only a small percentage of users are exposed.
+
+In API Gateway, Canary is a built-in feature of a stage. You create a canary deployment on an existing stage, set the percentage of traffic it receives, and compare behavior. When it looks good, you promote the canary to the stage, or you remove it to roll back. There’s no new infrastructure and no DNS change, so the cost is negligible. In contrast, Blue-green would mean standing up a second API Gateway (or stage) and splitting traffic between the two yourself via Route53 weight-policy routing.
 
 ### Errors
 

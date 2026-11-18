@@ -7053,6 +7053,34 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 > *AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS*
 > 
 
+### Amazon Lightsail
+
+> Amazon Lightsail is AWS's simplified, low-cost virtual private server (VPS) service for people who don't want to configure the full AWS stack. You pick a preconfigured blueprint (WordPress, LAMP, Node.js, and similar) and a bundle with a fixed monthly price that includes compute, storage, and data transfer, and you're running in minutes. It also offers managed databases, load balancers, container services, a CDN, object storage, block storage, static IPs, and DNS, all behind a simple console.
+
+#### Essentials for the exam
+
+- **When it's the answer:** the question describes a small or simple workload (blog, small business website, dev/test environment, simple web app), asks for the **simplest** or **least configuration** option, or stresses **predictable, flat monthly pricing**, often with a team that has little AWS experience.
+- **When it's a distractor:** the scenario needs large scale, fine-grained control, advanced networking, or complex multi-tier architectures. EC2, Auto Scaling, and ALBs are the answer there.
+- **Connecting to other AWS services:** Lightsail runs in a Lightsail-managed VPC, but you can enable VPC peering between it and your default VPC in the same Region, so a Lightsail instance can reach resources such as RDS or EC2 instances.
+- **Graduating to EC2:** you can export Lightsail instance snapshots into EC2 when the workload outgrows Lightsail.
+- **Included extras:** static IPs, managed load balancers, managed databases (MySQL/PostgreSQL), and a CDN distribution (based on CloudFront).
+
+#### Exam pattern
+
+| Scenario keywords | Likely answer |
+|---|---|
+| Simple web hosting, WordPress, predictable low cost, minimal AWS knowledge | **Lightsail** |
+| Production architecture with scaling, high availability, customization | **EC2 + Auto Scaling + ALB** |
+| Deploy application code without managing infrastructure, still on standard AWS services | **Elastic Beanstalk** |
+
+### AWS Amplify
+
+A set of tools and services that lets front-end web and mobile developers build and deploy full-stack applications on AWS without managing the infrastructure details. It gives you a way to add backend features (authentication, APIs, data, file storage) and to host the app, with Git-based deployment.
+
+- Amplify Hosting: connect a Git repository (GitHub, GitLab, and others), and Amplify builds and deploys the app on each commit, with a CI/CD pipeline, preview environments for pull requests, and a CDN-backed global delivery layer. It handles static sites, and I believe it also supports server-side rendered frameworks such as Next.js.
+- Backend building blocks: under the hood, Amplify provisions standard AWS services: Cognito for authentication, AppSync or API Gateway for APIs, DynamoDB for data, and S3 for file storage. You define these through its libraries or configuration, and you don’t wire each service up manually.
+- Client libraries: JavaScript, iOS, Android, and Flutter libraries that connect the front end to those backend services.
+
 ### AWS X-Ray
 
 > *AWS X-Ray provides a complete view of requests as they travel through your application and filters visual data across payloads, functions, traces, services, APIs, and more with no-code and low-code motions.*
@@ -7332,26 +7360,6 @@ Log and clickstream analysis, large-scale ETL, machine learning on big datasets,
 1. Do the keywords say "tightly coupled", "MPI", or "low latency between nodes"? Look for **EFA + cluster placement group + FSx for Lustre**, deployed via ParallelCluster (or PCS if managed Slurm is the stated requirement).
 2. Does it say "containers", "independent jobs", "fully managed", or "no infrastructure to manage"? That's **Batch**.
 3. Does it say "Slurm", "existing HPC scripts", or "migrate on-premises HPC"? That's **ParallelCluster** or **PCS**. Choose PCS when the question says managed or reduced operational overhead, and ParallelCluster when it needs customization or control.
-
-### Amazon Lightsail
-
-> Amazon Lightsail is AWS's simplified, low-cost virtual private server (VPS) service for people who don't want to configure the full AWS stack. You pick a preconfigured blueprint (WordPress, LAMP, Node.js, and similar) and a bundle with a fixed monthly price that includes compute, storage, and data transfer, and you're running in minutes. It also offers managed databases, load balancers, container services, a CDN, object storage, block storage, static IPs, and DNS, all behind a simple console.
-
-#### Essentials for the exam
-
-- **When it's the answer:** the question describes a small or simple workload (blog, small business website, dev/test environment, simple web app), asks for the **simplest** or **least configuration** option, or stresses **predictable, flat monthly pricing**, often with a team that has little AWS experience.
-- **When it's a distractor:** the scenario needs large scale, fine-grained control, advanced networking, or complex multi-tier architectures. EC2, Auto Scaling, and ALBs are the answer there.
-- **Connecting to other AWS services:** Lightsail runs in a Lightsail-managed VPC, but you can enable VPC peering between it and your default VPC in the same Region, so a Lightsail instance can reach resources such as RDS or EC2 instances.
-- **Graduating to EC2:** you can export Lightsail instance snapshots into EC2 when the workload outgrows Lightsail.
-- **Included extras:** static IPs, managed load balancers, managed databases (MySQL/PostgreSQL), and a CDN distribution (based on CloudFront).
-
-#### Exam pattern
-
-| Scenario keywords | Likely answer |
-|---|---|
-| Simple web hosting, WordPress, predictable low cost, minimal AWS knowledge | **Lightsail** |
-| Production architecture with scaling, high availability, customization | **EC2 + Auto Scaling + ALB** |
-| Deploy application code without managing infrastructure, still on standard AWS services | **Elastic Beanstalk** |
 
 ### AWS Data Transfer Terminal
 

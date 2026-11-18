@@ -5461,7 +5461,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Port hourly cost & outbound data transfer (inbound is free of charge)
 - Provisioning time - physical cables & no resilience
 - Low & consistent latency + High speeds ⚡
-- AWS Private Services (VPCs) and AWS Public Services - **NO INTERNET**
+- AWS Private Services (VPCs) via Private VIF and AWS Public Services via Public VIF - **NO INTERNET**
 - **❗DX is NOT ENCRYPTED ❗**
 
 ### DX Architecture

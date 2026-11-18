@@ -627,6 +627,7 @@ Provide access to VMs known as instances*
    	- Hibernation is only supported on specific instance families and OS versions, including supported Windows Server versions
    	- There is a 60-day maximum period that an instance can hibernate for
    	- Hibernation allows for faster startup after "stopping" while otherwise reducing costs outside of specified hours
+- AWS EC2 detailed monitoring is an opt-in, paid Amazon CloudWatch feature that collects and publishes instance metrics at 1-minute intervals instead of the default 5-minute basic monitoring interval. It also unlocks metric aggregation across Auto Scaling groups and instance types. Metrics that require the EC2 CloudWatch Agent to be installed, such a memory utilization, disk utilization, and swap space utilization, still require the CloudWatch Agent to be installed
 
 ### Instance Lifecycle
 

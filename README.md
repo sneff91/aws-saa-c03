@@ -3590,14 +3590,14 @@ Use an active-passive failover configuration when you want a primary resource or
 
 ## Routing Policy 8: IP-Based Routing
 
-> *IP-Based routing routes based on the client’s IP address
+> IP-Based routing routes based on the client’s IP address
 
-- With IP-based routing in Amazon Route 53, you can fine-tune your DNS routing based on your knowledge of your network, applications, and clients. This helps you make the best DNS routing choices for your end users. IP-based routing gives you fine-grained control to boost performance or cut network costs by uploading your data to Route 53 as user-IP-to-endpoint mappings.
-- Geolocation and latency-based routing uses data that Route 53 collects and keeps current. This approach works well for most customers. IP-based routing gives you the added ability to tune routing based on what you know about your customer base. For example, a global video provider might want to route end users from a given internet service provider (ISP).
+- IP-based routing gives you fine-grained control to boost performance or cut network costs by uploading your data to Route 53 as user-IP-to-endpoint mappings.
+- Geolocation and latency-based routing uses data that Route 53 collects and keeps current. This approach works well for most customers. IP-based routing gives you the added ability to tune routing based on what you know about your customer base.
 - Some common use cases for IP-based routing are the following:
-- You want to route end users from certain ISPs to specific endpoints so you can optimize network transit costs or performance.
-- You want to add overrides to existing Route 53 routing types, such as geolocation routing, based on your knowledge of your clients' physical locations.
-- You cannot use IP-based routing policy for records in a private hosted zone.
+	- You want to route end users from certain ISPs to specific endpoints so you can optimize network transit costs or performance.
+	- You want to add overrides to existing Route 53 routing types, such as geolocation routing, based on your knowledge of your clients' physical locations.
+	- You cannot use IP-based routing policy for records in a private hosted zone.
 
 ## R53 Interoperability
 

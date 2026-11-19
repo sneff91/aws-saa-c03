@@ -1436,6 +1436,16 @@ Versioning lets you store multiple versions of objects within a bucket. Operatio
 - Lower, consistent latency
 - The worse the initial connection, the bigger the gain of uses accelerated transfer
 
+### Expedited Retrieval & Provisioned Retrieval Capacity
+
+- Expedited retrievals allow you to quickly access your data when occasional urgent requests for a subset of archives are required.
+	- For all but the largest archives (250 MB+), data accessed using Expedited retrievals are typically made available within 1–5 minutes.
+- Provisioned capacity ensures that your retrieval capacity for expedited retrievals is available when you need it.
+	- Each unit of capacity provides that at least three expedited retrievals can be performed every five minutes and provides up to 150 MB/s of retrieval throughput.
+	- You should purchase provisioned retrieval capacity if your workload requires highly reliable and predictable access to a subset of your data in minutes.
+	- Without provisioned capacity Expedited retrievals are accepted, except for rare situations of unusually high demand.
+	- However, if you require access to Expedited retrievals under all circumstances, you must purchase provisioned retrieval capacity.
+
 ## Key Management Service (KMS)
 
 > **Regional & Public Service

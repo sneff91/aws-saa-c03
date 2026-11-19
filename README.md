@@ -2325,6 +2325,7 @@ https://instances.vantage.sh/
 - Benefits of both GP2 and IO1
 - Suitable for
     - Virtual desktops, medium sized single instance databases such as MSSQL Server and Oracle DB, low-latency interactive apps, dev&test, boot volumes
+- IOPS for GP2 scales up/down with storage amounts, whereas IOPS for GP3 are independent of storage size (i.e. you can have a smaller storage volume, like 500GB, but very high IOPS still)
 
 ## Provisioned IOPS SSD (io1/2)
 
@@ -2348,7 +2349,7 @@ https://instances.vantage.sh/
     - io2 Block Express - 260000 IOPS & 7500 MB/s
     
     ![Untitled](img/Untitled%2058.png)
-    
+  - IO1 and IO2 are for very high, or consistent IOPS for latency-sensitive applications like databases
 
 ## HDD-Based
 
@@ -5039,6 +5040,8 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 ![Untitled](img/Untitled%20154.png)
 
 ![Untitled](img/Untitled%20155.png)
+
+CloudFront can also provide media streaming services via S3 storage origin (audio and video files)
 
 ## CloudFront Behaviors
 

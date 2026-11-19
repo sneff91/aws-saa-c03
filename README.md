@@ -128,6 +128,7 @@ This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Archi
   - [Routing Policy 5: Latency Routing](#routing-policy-5-latency-routing)
   - [Routing Policy 6: Geolocation Routing](#routing-policy-6-geolocation-routing)
   - [Routing Policy 7: Geoproximity Routing](#routing-policy-7-geoproximity-routing)
+  - [Routing Policy 8: IP-based Routing](#routing-policy-8-ip-based-routing)
   - [R53 Interoperability](#r53-interoperability)
 
 - [💽 Relational Database Service (RDS)](#relational-database-service-rds)
@@ -3585,6 +3586,11 @@ Use an active-passive failover configuration when you want a primary resource or
 - Calculate **distance** between customer and records
 - Define rules and a bias
     - Bias: + or - bias can be added to rules
+
+
+## Routing Policy 8: IP-Based Routing
+
+> *IP-Based routing routes based on the client’s IP address
 
 ![Untitled](img/Untitled%2088.png)
 

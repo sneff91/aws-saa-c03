@@ -3697,7 +3697,8 @@ Reasons to NOT host DB on EC2:
 ### RDS Architecture
 
 ![Untitled](img/Untitled%2092.png)
-- You can enable Enhanced Monitoring to gain the ability to monitor different processes or threads in a DB instance, allowing you to measure the CPU and memory consumed by each process
+- You can enable Enhanced Monitoring to gain the ability to monitor different processes or threads in a DB instance, allowing you to monitor RDS child processes, RDS processes, and OS processes, including the CPU and memory consumed by each process
+- Overal CPU Utilization, Database Connections, and Freeable Memory are just the regular items provided by Amazon RDS Metrics in CloudWatch
 - You can invoke an AWS Lambda function from an Amazon Aurora MySQL-Compatible Edition DB cluster using a native Lambda function (either synchronously or asynchronously)
 	- This approach can be useful when you want to integrate your database running on Aurora MySQL with other AWS services
    	- For example, you might want to capture data changes whenever a row in a table is modified in your database

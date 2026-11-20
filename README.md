@@ -3703,6 +3703,7 @@ Reasons to NOT host DB on EC2:
 	- This approach can be useful when you want to integrate your database running on Aurora MySQL with other AWS services
    	- For example, you might want to capture data changes whenever a row in a table is modified in your database
    	- This isn't available with other DB engines in RDS as RDS event subscriptions typically only notify about operational changes rather than data modifications. i.e. Unlike Aurora MySQL, they do not capture database modifications like INSERT, DELETE, or UPDATE
+- Babelfish for Aurora PostgreSQL is an extension designed for Amazon Aurora PostgreSQL. It allows the database to interpret commands from applications developed for Microsoft SQL Server. By serving as a translation layer, it converts T-SQL (Microsoft’s SQL dialect) into PostgreSQL, enabling SQL Server applications to run directly on Aurora PostgreSQL with minimal or no changes required to the code
 
 ### RDS Database Instance
 
